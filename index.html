@@ -3,1437 +3,436 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bear & Louise — South African Artists</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&family=Bebas+Neue&display=swap" rel="stylesheet">
+<title>Louise Hansen — South African Artist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --cream: #f5f0e8;
-  --warm-white: #faf7f2;
-  --parchment: #ede5d0;
-  --charcoal: #2a2520;
-  --warm-brown: #8b6f47;
-  --deep-brown: #5c3d1e;
-  --gold: #c9a84c;
-  --gold-light: #e8d08a;
-  --soft-grey: #9e9189;
-  --bear-bg: #0d0d1a;
-  --bear-mid: #161628;
-  --bear-accent: #ff2d55;
-  --bear-blue: #0af;
-  --bear-yellow: #ffe600;
-  --bear-text: #f0f0f0;
+  --cream:#f5f0e8;--warm-white:#faf7f2;--parchment:#ede5d0;
+  --charcoal:#2a2520;--warm-brown:#8b6f47;--gold:#c9a84c;
+  --gold-light:#e8d08a;--soft-grey:#9e9189;
+  --cw:1360px;
+  --cx:clamp(1.5rem,5vw,6rem);
 }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+img{-webkit-user-drag:none;user-select:none;pointer-events:none}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;font-weight:300;background:var(--warm-white);color:var(--charcoal);overflow-x:hidden}
 
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+/* ── CONTAINER ── */
+.container{width:100%;max-width:var(--cw);margin-left:auto;margin-right:auto;padding-left:var(--cx);padding-right:var(--cx)}
 
-img {
-  -webkit-user-drag: none;
-  user-drag: none;
-  -webkit-user-select: none;
-  user-select: none;
-  pointer-events: none;
-}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(250,247,242,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(139,111,71,0.1);transition:box-shadow 0.3s}
+.nav-inner{max-width:var(--cw);margin:0 auto;padding:1.1rem var(--cx);display:flex;justify-content:space-between;align-items:center}
+.nav-brand{display:flex;flex-direction:column;line-height:1}
+.nav-brand-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;letter-spacing:0.06em;color:var(--charcoal)}
+.nav-brand-name em{font-style:italic;color:var(--warm-brown)}
+.nav-brand-sub{font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;opacity:0.5;margin-top:2px}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
+.nav-links a{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--charcoal);opacity:0.7;transition:opacity 0.3s}
+.nav-links a:hover{opacity:1}
+.nav-bear-link{padding:0.5rem 1.4rem;border:1px solid var(--warm-brown);border-radius:2px;font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-brown);text-decoration:none;transition:all 0.3s}
+.nav-bear-link:hover{background:var(--warm-brown);color:var(--cream)}
 
-html { scroll-behavior: smooth; }
+/* ── HERO (full bleed, no container) ── */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;padding-top:4.5rem}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem var(--cx) 5rem calc((100vw - var(--cw))/2 + var(--cx));position:relative;z-index:2}
+.hero-left::after{content:'';position:absolute;left:calc((100vw - var(--cw))/2 + var(--cx) - 2rem);top:20%;bottom:20%;width:2px;background:linear-gradient(to bottom,transparent,var(--gold),transparent)}
+.eyebrow{font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;animation:fadeUp 0.9s ease 0.1s both}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,4.5vw,5.5rem);font-weight:300;line-height:1.08;color:var(--charcoal);margin-bottom:1.8rem;animation:fadeUp 0.9s ease 0.25s both}
+.hero-title em{font-style:italic;color:var(--warm-brown)}
+.hero-sub{font-size:0.92rem;line-height:1.9;color:var(--soft-grey);max-width:400px;margin-bottom:3rem;animation:fadeUp 0.9s ease 0.4s both}
+.hero-actions{display:flex;gap:2rem;align-items:center;animation:fadeUp 0.9s ease 0.55s both}
+.btn-primary{display:inline-block;padding:1rem 2.5rem;background:var(--warm-brown);color:var(--cream);font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s}
+.btn-primary:hover{background:var(--charcoal)}
+.btn-ghost{font-size:0.78rem;letter-spacing:0.1em;color:var(--warm-brown);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:3px;transition:all 0.3s}
+.hero-right{position:relative;overflow:hidden}
+.hero-right img{width:100%;height:100%;min-height:100vh;object-fit:cover;object-position:center;display:block;animation:fadeIn 1.2s ease 0.3s both}
 
-body {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  overflow-x: hidden;
-  transition: background 0.5s ease, color 0.5s ease;
-}
+/* ── ABOUT ── */
+.about{background:var(--parchment);padding:7rem 0}
+.about .container{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:center}
+.about-img-wrap{position:relative;width:100%}
+.about-img-wrap img{width:100%;height:auto;display:block}
+.about-img-wrap::before{content:'';position:absolute;top:-1rem;left:-1rem;width:45%;height:45%;border-top:1px solid var(--gold);border-left:1px solid var(--gold);opacity:0.45;pointer-events:none;z-index:2}
+.about-img-wrap::after{content:'';position:absolute;bottom:-1rem;right:-1rem;width:45%;height:45%;border-bottom:1px solid var(--gold);border-right:1px solid var(--gold);opacity:0.45;pointer-events:none;z-index:2}
+.section-label{font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;display:block}
+.about-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,3rem);font-weight:300;line-height:1.2;color:var(--charcoal);margin-bottom:2rem}
+.about-text h2 em{font-style:italic;color:var(--warm-brown)}
+.about-text p{font-size:0.92rem;line-height:1.95;color:var(--soft-grey);margin-bottom:1.2rem}
+.about-text p strong{color:var(--warm-brown);font-weight:400}
+.medium-tags{display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:2rem}
+.medium-tag{padding:0.4rem 1.1rem;border:1px solid rgba(139,111,71,0.3);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--warm-brown)}
 
-body.louise-mode { background: var(--warm-white); color: var(--charcoal); }
-body.bear-mode { background: var(--bear-bg); color: var(--bear-text); }
+/* ── GALLERY ── */
+.gallery{background:var(--warm-white);padding:7rem 0}
+.gallery-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem}
+.gallery-head h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,3rem);font-weight:300;color:var(--charcoal)}
+.gallery-head h2 em{font-style:italic;color:var(--warm-brown)}
+.tab-pills{display:flex;border:1px solid rgba(139,111,71,0.25);border-radius:2px;overflow:hidden}
+.tab-pill{padding:0.6rem 1.5rem;font-family:'Jost',sans-serif;font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-right:1px solid rgba(139,111,71,0.25);color:var(--soft-grey);cursor:pointer;transition:all 0.3s}
+.tab-pill:last-child{border-right:none}
+.tab-pill.active{background:var(--warm-brown);color:var(--cream)}
+.tab-pill:hover:not(.active){background:rgba(139,111,71,0.08);color:var(--warm-brown)}
+.tab-panel{display:none}.tab-panel.active{display:block}
+.gallery-grid{columns:3;column-gap:0.8rem}
+.gallery-item{break-inside:avoid;margin-bottom:0.8rem;position:relative;overflow:hidden;cursor:pointer;background:var(--parchment);display:block}
+.gallery-thumb img{width:100%;height:auto;display:block;transition:transform 0.6s ease}
+.gallery-item:hover .gallery-thumb img{transform:scale(1.03)}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(42,37,32,0.85) 0%,transparent 50%);opacity:0;transition:opacity 0.4s;display:flex;align-items:flex-end;padding:1.2rem;pointer-events:none}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-info h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:#fff;margin-bottom:0.2rem}
+.gallery-info span{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold-light);opacity:0.85}
 
-/* ─── NAV ─── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 200;
-  padding: 1.2rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.5s ease;
-}
-body.louise-mode nav {
-  background: rgba(250,247,242,0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(139,111,71,0.12);
-}
-body.bear-mode nav {
-  background: rgba(13,13,26,0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255,45,85,0.15);
-}
-.nav-brand { display: flex; flex-direction: column; line-height: 1; }
-.nav-brand-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem; font-weight: 400; letter-spacing: 0.06em;
-  transition: color 0.5s;
-}
-body.louise-mode .nav-brand-name { color: var(--charcoal); }
-body.bear-mode .nav-brand-name { color: var(--bear-text); }
-.nav-brand-name em { font-style: italic; color: var(--warm-brown); }
-body.bear-mode .nav-brand-name em { color: var(--bear-accent); }
-.nav-brand-sub { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; opacity: 0.5; margin-top: 2px; }
+/* ── CAROUSEL ── */
+.carousel-wrap{display:none;overflow:hidden}
+.carousel-track{display:flex;transition:transform 0.4s ease;gap:0.8rem}
+.carousel-slide{flex:0 0 82vw;max-width:360px;cursor:pointer;background:var(--parchment)}
+.carousel-slide img{width:100%;height:auto;display:block}
+.carousel-caption{padding:0.8rem 1rem}
+.carousel-caption h4{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--charcoal)}
+.carousel-caption span{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--soft-grey)}
+.carousel-nav{display:flex;justify-content:center;gap:0.5rem;margin-top:1rem;padding-bottom:1rem}
+.carousel-dot{width:6px;height:6px;border-radius:50%;background:rgba(139,111,71,0.3);border:none;cursor:pointer;transition:background 0.3s;padding:0}
+.carousel-dot.active{background:var(--warm-brown)}
+.carousel-btns{display:flex;justify-content:space-between;margin-bottom:0.5rem}
+.carousel-btn{background:var(--warm-brown);color:var(--cream);border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.3s}
+.carousel-btn:hover{background:var(--charcoal)}
 
-.nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
-.nav-links a {
-  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-  text-decoration: none; transition: color 0.3s; opacity: 0.7;
-}
-body.louise-mode .nav-links a { color: var(--charcoal); }
-body.bear-mode .nav-links a { color: var(--bear-text); }
-.nav-links a:hover { opacity: 1; }
+/* ── COMMISSION BAND ── */
+.commission-band{background:var(--charcoal);padding:6rem 0;text-align:center}
+.commission-band .container{max-width:680px}
+.commission-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3.5rem);font-weight:300;color:var(--cream);margin-bottom:1rem}
+.commission-band h2 em{font-style:italic;color:var(--gold)}
+.commission-band p{font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.9;margin-bottom:2rem}
+.btn-gold{display:inline-flex;align-items:center;gap:0.6rem;padding:1rem 2.5rem;border:1px solid var(--gold);color:var(--gold);font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;background:transparent;cursor:pointer;transition:all 0.3s;margin:0.4rem}
+.btn-gold:hover{background:var(--gold);color:var(--charcoal)}
 
-.artist-toggle { display: flex; border-radius: 2px; overflow: hidden; }
-body.louise-mode .artist-toggle { border: 1px solid var(--warm-brown); }
-body.bear-mode .artist-toggle { border: 1px solid var(--bear-accent); }
-.toggle-btn {
-  padding: 0.55rem 1.5rem; font-family: 'Jost', sans-serif;
-  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.15em;
-  text-transform: uppercase; cursor: pointer; border: none;
-  background: transparent; transition: all 0.35s ease;
-}
-body.louise-mode .toggle-btn { color: var(--warm-brown); }
-body.bear-mode .toggle-btn { color: var(--bear-accent); }
-.toggle-btn.active-louise { background: var(--warm-brown); color: var(--cream) !important; }
-.toggle-btn.active-bear { background: var(--bear-accent); color: #fff !important; }
+/* ── LESSONS ── */
+.lessons{background:var(--parchment);padding:7rem 0}
+.lessons .container{display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center}
+.lessons-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,3rem);font-weight:300;color:var(--charcoal);margin-bottom:1.5rem}
+.lessons-text h2 em{font-style:italic;color:var(--warm-brown)}
+.lessons-text p{font-size:0.92rem;line-height:1.95;color:var(--soft-grey);margin-bottom:1rem}
+.lessons-options{display:flex;flex-direction:column;gap:1rem;margin:2rem 0}
+.lesson-option{padding:1.2rem 1.5rem;border-left:2px solid var(--gold);background:var(--warm-white)}
+.lesson-option h4{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--charcoal);margin-bottom:0.3rem}
+.lesson-option p{font-size:0.82rem;color:var(--soft-grey);margin:0;line-height:1.6}
+.lessons-img{width:100%}
+.lessons-img img{width:100%;height:auto;display:block}
+.whatsapp-note{margin-top:1.5rem;padding:1rem 1.2rem;background:rgba(139,111,71,0.07);border:1px solid rgba(139,111,71,0.2);font-size:0.8rem;color:var(--soft-grey);line-height:1.7}
+.whatsapp-note strong{color:var(--warm-brown);font-weight:400}
+.booking-placeholder{margin-top:1.5rem;padding:1.5rem;border:1px dashed rgba(139,111,71,0.3);background:rgba(139,111,71,0.04);text-align:center}
+.booking-placeholder p{font-size:0.75rem;letter-spacing:0.1em;color:var(--soft-grey);line-height:1.8}
 
-/* section visibility */
-body.bear-mode .louise-only { display: none !important; }
-body.louise-mode .bear-only { display: none !important; }
+/* ── CONTACT ── */
+.contact{background:var(--warm-white);padding:7rem 0}
+.contact .container{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.contact-text h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,3rem);font-weight:300;color:var(--charcoal);margin-bottom:1rem}
+.contact-text h2 em{font-style:italic;color:var(--warm-brown)}
+.contact-text p{font-size:0.9rem;line-height:1.9;color:var(--soft-grey);margin-bottom:0.8rem}
+.contact-detail{display:flex;flex-direction:column;gap:1.2rem}
+.contact-item{display:flex;flex-direction:column;gap:0.3rem}
+.contact-item-label{font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold)}
+.contact-item-val{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;color:var(--charcoal)}
+.contact-item-val a{color:inherit;text-decoration:none;transition:opacity 0.3s}
+.contact-item-val a:hover{opacity:0.7}
 
-/* ─── HERO LOUISE ─── */
-.hero-louise {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  overflow: hidden;
-  padding-top: 5rem;
-}
-.hero-louise-left {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 5rem 4rem 5rem 5rem; position: relative; z-index: 2;
-}
-.hero-louise-left::after {
-  content: ''; position: absolute; left: 0; top: 20%; bottom: 20%;
-  width: 2px; background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-}
-.eyebrow {
-  font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1.8rem;
-  opacity: 0; animation: fadeUp 0.9s ease 0.2s forwards;
-}
-.hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 300; line-height: 1.08;
-  color: var(--charcoal); margin-bottom: 1.8rem;
-  opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards;
-}
-.hero-title em { font-style: italic; color: var(--warm-brown); }
-.hero-sub {
-  font-size: 0.92rem; line-height: 1.9; color: var(--soft-grey);
-  max-width: 400px; margin-bottom: 3rem;
-  opacity: 0; animation: fadeUp 0.9s ease 0.6s forwards;
-}
-.hero-actions {
-  display: flex; gap: 2rem; align-items: center;
-  opacity: 0; animation: fadeUp 0.9s ease 0.8s forwards;
-}
-.btn-primary {
-  display: inline-block; padding: 1rem 2.5rem; background: var(--warm-brown);
-  color: var(--cream); font-family: 'Jost', sans-serif; font-size: 0.7rem;
-  letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none;
-  border: none; cursor: pointer; transition: all 0.3s ease;
-}
-.btn-primary:hover { background: var(--charcoal); }
-.btn-ghost {
-  font-size: 0.78rem; letter-spacing: 0.1em; color: var(--warm-brown);
-  text-decoration: none; border-bottom: 1px solid var(--gold);
-  padding-bottom: 3px; transition: all 0.3s; cursor: pointer;
-}
+/* ── LIGHTBOX ── */
+.lightbox{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.94);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox-inner{position:relative;max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center}
+.lightbox-inner img{max-width:100%;max-height:78vh;object-fit:contain;display:block}
+.lightbox-caption{margin-top:1.2rem;text-align:center}
+.lightbox-caption h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:#fff}
+.lightbox-caption span{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.lightbox-close{position:absolute;top:-3rem;right:0;background:none;border:none;color:rgba(255,255,255,0.6);font-size:1.5rem;cursor:pointer;transition:color 0.3s}
+.lightbox-close:hover{color:#fff}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,0.5);font-size:2.5rem;cursor:pointer;padding:1rem;transition:color 0.3s}
+.lightbox-nav:hover{color:#fff}
+.lightbox-prev{left:-4rem}.lightbox-next{right:-4rem}
 
-/* Hero image — landscape fit, no blur */
-.hero-louise-right {
-  position: relative; overflow: hidden;
-}
-.hero-louise-right img {
-  width: 100%; height: 100%; min-height: 100vh;
-  object-fit: cover;
-  object-position: center center;
-  display: block;
-  image-rendering: auto;
-  opacity: 0; animation: fadeIn 1.4s ease 0.6s forwards;
-}
+/* ── FOOTER ── */
+footer{background:var(--charcoal)}
+.footer-inner{max-width:var(--cw);margin:0 auto;padding:2.5rem var(--cx);display:flex;justify-content:space-between;align-items:center;gap:2rem}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;color:rgba(255,255,255,0.6)}
+.footer-brand em{font-style:italic;color:rgba(201,168,76,0.7)}
+.footer-links{display:flex;gap:1.8rem;flex-wrap:wrap}
+.footer-links a{color:rgba(255,255,255,0.35);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;transition:color 0.3s}
+.footer-links a:hover{color:rgba(255,255,255,0.8)}
+.copy{font-size:0.65rem;letter-spacing:0.1em;color:rgba(255,255,255,0.25)}
 
-/* ─── ABOUT LOUISE ─── */
-.about-louise {
-  padding: 7rem 5rem;
-  display: grid; grid-template-columns: 1fr 1.3fr; gap: 5rem;
-  align-items: center; background: var(--parchment);
-}
-.about-img-wrap {
-  position: relative;
-  width: 100%;
-  /* No forced aspect-ratio — image shows at its natural proportions */
-}
-.about-img-wrap img {
-  width: 100%; height: auto;
-  display: block;
-  object-fit: contain;
-}
-/* Decorative corner lines */
-.about-img-wrap::before {
-  content: ''; position: absolute; top: -1rem; left: -1rem;
-  width: 45%; height: 45%;
-  border-top: 1px solid var(--gold); border-left: 1px solid var(--gold);
-  opacity: 0.45; pointer-events: none; z-index: 2;
-}
-.about-img-wrap::after {
-  content: ''; position: absolute; bottom: -1rem; right: -1rem;
-  width: 45%; height: 45%;
-  border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold);
-  opacity: 0.45; pointer-events: none; z-index: 2;
-}
-.about-text .section-label {
-  font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1.2rem;
-}
-.about-text h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 3vw, 3rem); font-weight: 300; line-height: 1.2;
-  color: var(--charcoal); margin-bottom: 2rem;
-}
-.about-text h2 em { font-style: italic; color: var(--warm-brown); }
-.about-text p { font-size: 0.92rem; line-height: 1.95; color: var(--soft-grey); margin-bottom: 1.2rem; }
-.about-text p strong { color: var(--warm-brown); font-weight: 400; }
-.medium-tags { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 2rem; }
-.medium-tag {
-  padding: 0.4rem 1.1rem; border: 1px solid rgba(139,111,71,0.3);
-  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--warm-brown);
-}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-/* ─── GALLERY TABS (Louise) ─── */
-.gallery-louise { padding: 6rem 3rem; background: var(--warm-white); }
-.gallery-header {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  margin-bottom: 3rem; padding: 0 1rem;
-}
-.gallery-header h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 3vw, 3rem); font-weight: 300; color: var(--charcoal);
-}
-.gallery-header h2 em { font-style: italic; color: var(--warm-brown); }
-
-/* Tab pills */
-.tab-pills { display: flex; gap: 0; border: 1px solid rgba(139,111,71,0.25); border-radius: 2px; overflow: hidden; }
-.tab-pill {
-  padding: 0.6rem 1.5rem; font-family: 'Jost', sans-serif;
-  font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
-  background: transparent; border: none; border-right: 1px solid rgba(139,111,71,0.25);
-  color: var(--soft-grey); cursor: pointer; transition: all 0.3s;
-}
-.tab-pill:last-child { border-right: none; }
-.tab-pill.active { background: var(--warm-brown); color: var(--cream); }
-.tab-pill:hover:not(.active) { background: rgba(139,111,71,0.08); color: var(--warm-brown); }
-
-/* Tab panels */
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
-
-/* ─── GALLERY — MASONRY (no cropping) ─── */
-.gallery-grid {
-  /* CSS columns masonry — each image shows at its TRUE ratio */
-  columns: 3;
-  column-gap: 0.8rem;
-  padding: 0 1rem;
-}
-
-.gallery-item {
-  break-inside: avoid;
-  margin-bottom: 0.8rem;
-  position: relative; overflow: hidden; cursor: pointer;
-  background: var(--parchment);
-  display: block;
-}
-
-/* No fixed height — image breathes at its natural proportion */
-.gallery-thumb {
-  width: 100%; position: relative; overflow: hidden;
-}
-
-.gallery-thumb img {
-  width: 100%; height: auto; /* KEY: auto height = no cropping */
-  display: block;
-  transition: transform 0.6s ease;
-}
-
-.gallery-item:hover .gallery-thumb img { transform: scale(1.03); }
-
-
-.gallery-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(42,37,32,0.85) 0%, transparent 50%);
-  opacity: 0; transition: opacity 0.4s;
-  display: flex; align-items: flex-end; padding: 1.2rem;
-  /* ensure overlay covers full image */
-  pointer-events: none;
-}
-.gallery-item:hover .gallery-overlay { opacity: 1; }
-.gallery-info h4 {
-  font-family: 'Cormorant Garamond', serif; font-size: 1rem;
-  font-weight: 400; color: #fff; margin-bottom: 0.2rem;
-}
-.gallery-info span {
-  font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--gold-light); opacity: 0.85;
-}
-
-/* ─── MOBILE CAROUSEL ─── */
-.carousel-wrap { position: relative; overflow: hidden; }
-.carousel-track {
-  display: flex; transition: transform 0.4s ease;
-  gap: 0.8rem; padding: 0 1rem;
-}
-.carousel-slide {
-  flex: 0 0 85vw; max-width: 380px;
-  position: relative; overflow: hidden; cursor: pointer;
-  background: var(--parchment);
-}
-.carousel-slide img {
-  width: 100%; height: 260px;
-  object-fit: cover; object-position: center; display: block;
-}
-.carousel-slide .carousel-caption {
-  padding: 0.8rem 1rem;
-  background: var(--parchment);
-}
-.carousel-caption h4 {
-  font-family: 'Cormorant Garamond', serif; font-size: 1rem;
-  font-weight: 400; color: var(--charcoal);
-}
-.carousel-caption span {
-  font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--soft-grey);
-}
-.carousel-nav {
-  display: flex; justify-content: center; gap: 0.5rem;
-  margin-top: 1.2rem; padding-bottom: 1rem;
-}
-.carousel-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: rgba(139,111,71,0.3); border: none; cursor: pointer;
-  transition: background 0.3s; padding: 0;
-}
-.carousel-dot.active { background: var(--warm-brown); }
-.carousel-btns {
-  display: flex; justify-content: space-between;
-  padding: 0 1rem; margin-bottom: 0.5rem;
-}
-.carousel-btn {
-  background: var(--warm-brown); color: var(--cream); border: none;
-  width: 36px; height: 36px; border-radius: 50%;
-  font-size: 1.1rem; cursor: pointer; display: flex;
-  align-items: center; justify-content: center;
-  transition: background 0.3s;
-}
-.carousel-btn:hover { background: var(--charcoal); }
-
-/* Bear carousel dots/btns */
-.bear-carousel-dot { background: rgba(255,45,85,0.3); }
-.bear-carousel-dot.active { background: var(--bear-accent); }
-.bear-carousel-btn { background: var(--bear-accent); }
-.bear-carousel-btn:hover { background: #ff5577; }
-
-/* ─── COMMISSIONS / BLOU DONKIE BAND ─── */
-.commission-band {
-  padding: 5rem; background: var(--charcoal); text-align: center;
-}
-.commission-band .section-label {
-  font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1rem; display: block;
-}
-.commission-band h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 3.5vw, 3.5rem); font-weight: 300;
-  color: var(--cream); margin-bottom: 1rem;
-}
-.commission-band h2 em { font-style: italic; color: var(--gold); }
-.commission-band p { font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.9; max-width: 520px; margin: 0 auto 2rem; }
-.btn-gold {
-  display: inline-flex; align-items: center; gap: 0.6rem;
-  padding: 1rem 2.5rem; border: 1px solid var(--gold); color: var(--gold);
-  font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em;
-  text-transform: uppercase; text-decoration: none; background: transparent;
-  cursor: pointer; transition: all 0.3s; margin: 0.4rem;
-}
-.btn-gold:hover { background: var(--gold); color: var(--charcoal); }
-
-/* ─── ART LESSONS SECTION ─── */
-.lessons-section {
-  padding: 6rem 5rem; background: var(--parchment);
-  display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center;
-}
-.lessons-text .section-label {
-  font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 1.2rem;
-}
-.lessons-text h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 3vw, 3rem); font-weight: 300;
-  color: var(--charcoal); margin-bottom: 1.5rem;
-}
-.lessons-text h2 em { font-style: italic; color: var(--warm-brown); }
-.lessons-text p { font-size: 0.92rem; line-height: 1.95; color: var(--soft-grey); margin-bottom: 1rem; }
-.lessons-options { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
-.lesson-option {
-  padding: 1.2rem 1.5rem;
-  border: 1px solid rgba(139,111,71,0.2);
-  background: var(--warm-white);
-}
-.lesson-option h4 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem; font-weight: 400; color: var(--charcoal); margin-bottom: 0.3rem;
-}
-.lesson-option p { font-size: 0.82rem; color: var(--soft-grey); margin: 0; line-height: 1.6; }
-.lessons-img {
-  position: relative;
-  width: 100%;
-  /* Natural ratio — no forcing */
-}
-.lessons-img img {
-  width: 100%; height: auto;
-  display: block; object-fit: contain;
-}
-.lessons-img::before {
-  content: ''; position: absolute; bottom: -1rem; right: -1rem;
-  width: 60%; height: 60%; border: 1px solid var(--gold); opacity: 0.3; pointer-events: none; z-index: 2;
-}
-
-/* ─── CONTACT ─── */
-.contact-section {
-  padding: 6rem 5rem;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
-}
-body.louise-mode .contact-section { background: var(--warm-white); }
-body.bear-mode .contact-section { background: var(--bear-mid); }
-.contact-text h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 3vw, 3rem); font-weight: 300; margin-bottom: 1rem;
-}
-body.louise-mode .contact-text h2 { color: var(--charcoal); }
-body.bear-mode .contact-text h2 { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; color: #fff; }
-.contact-text h2 em { font-style: italic; color: var(--warm-brown); }
-body.bear-mode .contact-text h2 em { font-style: normal; color: var(--bear-accent); }
-.contact-text p { font-size: 0.9rem; line-height: 1.9; margin-bottom: 0.8rem; }
-body.louise-mode .contact-text p { color: var(--soft-grey); }
-body.bear-mode .contact-text p { color: rgba(240,240,240,0.5); }
-.contact-detail { display: flex; flex-direction: column; gap: 1.2rem; }
-.contact-item { display: flex; flex-direction: column; gap: 0.3rem; }
-.contact-item-label { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; }
-body.louise-mode .contact-item-label { color: var(--gold); }
-body.bear-mode .contact-item-label { color: var(--bear-accent); }
-.contact-item-val { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; }
-body.louise-mode .contact-item-val { color: var(--charcoal); }
-body.bear-mode .contact-item-val { color: #fff; }
-.contact-item-val a { color: inherit; text-decoration: none; transition: opacity 0.3s; }
-.contact-item-val a:hover { opacity: 0.7; }
-
-/* ─── HERO BEAR ─── */
-.hero-bear {
-  min-height: 100vh;
-  display: grid; grid-template-columns: 1fr 1fr;
-  position: relative; overflow: hidden; padding-top: 5rem;
-  background: var(--bear-bg);
-}
-.hero-bear::before {
-  content: ''; position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(255,45,85,0.07) 1px, transparent 1px);
-  background-size: 28px 28px; pointer-events: none;
-}
-.hero-bear-left {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 6rem 4rem 6rem 5rem; position: relative; z-index: 2;
-}
-.bear-eyebrow {
-  font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
-  color: var(--bear-accent); margin-bottom: 1.8rem;
-  opacity: 0; animation: fadeUp 0.9s ease 0.2s forwards;
-}
-.bear-hero-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(5rem, 9vw, 9rem); line-height: 0.9;
-  letter-spacing: 0.03em; margin-bottom: 2rem;
-  opacity: 0; animation: fadeUp 0.9s ease 0.4s forwards;
-}
-.bear-hero-title .line-1 { color: #fff; }
-.bear-hero-title .line-2 { color: transparent; -webkit-text-stroke: 2px var(--bear-accent); }
-.bear-hero-sub {
-  font-size: 0.9rem; line-height: 1.9; color: rgba(240,240,240,0.55);
-  max-width: 400px; margin-bottom: 3rem;
-  opacity: 0; animation: fadeUp 0.9s ease 0.6s forwards;
-}
-.bear-hero-actions {
-  opacity: 0; animation: fadeUp 0.9s ease 0.8s forwards;
-  display: flex; gap: 2rem; align-items: center;
-}
-.btn-bear {
-  display: inline-block; padding: 1rem 2.5rem; background: var(--bear-accent);
-  color: #fff; font-family: 'Jost', sans-serif; font-size: 0.7rem;
-  letter-spacing: 0.2em; text-transform: uppercase; text-decoration: none;
-  border: none; cursor: pointer; transition: all 0.3s;
-}
-.btn-bear:hover { background: #ff5577; }
-.btn-bear-ghost {
-  font-size: 0.78rem; letter-spacing: 0.1em; color: var(--bear-accent);
-  text-decoration: none; border-bottom: 1px solid var(--bear-accent);
-  padding-bottom: 3px; opacity: 0.7; transition: opacity 0.3s;
-}
-.btn-bear-ghost:hover { opacity: 1; }
-
-/* Bear hero right — 2x2 grid of images, properly fitted */
-.hero-bear-right {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 3px; padding: 5.5rem 2rem 2rem 0;
-}
-.bear-hero-thumb { overflow: hidden; position: relative; }
-.bear-hero-thumb img {
-  width: 100%; height: 100%;
-  object-fit: cover; object-position: center top;
-  transition: transform 0.5s;
-  display: block;
-}
-.bear-hero-thumb:hover img { transform: scale(1.06); }
-
-/* ─── ABOUT BEAR ─── */
-.about-bear {
-  background: var(--bear-mid); padding: 7rem 5rem;
-  display: grid; grid-template-columns: 1.3fr 1fr; gap: 6rem; align-items: start;
-}
-.about-bear-text .section-label {
-  font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase;
-  color: var(--bear-accent); margin-bottom: 1.2rem;
-}
-.about-bear-text h2 {
-  font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 4vw, 4rem);
-  line-height: 1.1; letter-spacing: 0.04em; color: #fff; margin-bottom: 2rem;
-}
-.about-bear-text h2 em { font-style: normal; color: var(--bear-accent); }
-.about-bear-text p { font-size: 0.9rem; line-height: 1.95; color: rgba(240,240,240,0.55); margin-bottom: 1.2rem; }
-.paw-sig { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--bear-accent); margin-top: 2rem; letter-spacing: 0.08em; }
-.bear-style-tags { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 1.5rem; }
-.bear-tag { padding: 0.4rem 1rem; border: 1px solid rgba(255,45,85,0.3); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--bear-accent); }
-.about-bear-img { position: relative; }
-.about-bear-img img { width: 100%; height: auto; display: block; object-fit: contain; filter: contrast(1.1); }
-.about-bear-img::after {
-  content: ''; position: absolute; top: 1rem; left: 1rem; right: -1rem; bottom: -1rem;
-  border: 1px solid var(--bear-accent); opacity: 0.3; pointer-events: none;
-}
-
-/* ─── BEAR GALLERY ─── */
-.gallery-bear { background: var(--bear-bg); padding: 6rem 3rem; }
-.bear-gallery-header {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  padding: 0 1rem; margin-bottom: 3rem;
-}
-.bear-gallery-header h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.5rem, 4vw, 4rem); letter-spacing: 0.04em; color: #fff;
-}
-.bear-gallery-header h2 em { color: var(--bear-accent); font-style: normal; }
-.bear-tab-pills { display: flex; gap: 0; border: 1px solid rgba(255,45,85,0.3); border-radius: 2px; overflow: hidden; }
-.bear-tab-pill {
-  padding: 0.6rem 1.5rem; font-family: 'Jost', sans-serif;
-  font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
-  background: transparent; border: none; border-right: 1px solid rgba(255,45,85,0.2);
-  color: rgba(255,255,255,0.4); cursor: pointer; transition: all 0.3s;
-}
-.bear-tab-pill:last-child { border-right: none; }
-.bear-tab-pill.active { background: var(--bear-accent); color: #fff; }
-.bear-tab-pill:hover:not(.active) { background: rgba(255,45,85,0.1); color: rgba(255,255,255,0.8); }
-
-.bear-gallery-grid {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 3px; padding: 0 1rem;
-}
-.bear-gallery-item {
-  position: relative; overflow: hidden; cursor: pointer;
-  aspect-ratio: 1; background: var(--bear-mid);
-}
-.bear-gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
-.bear-gallery-item img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center top;
-  transition: transform 0.5s ease, filter 0.5s; filter: contrast(1.05);
-}
-.bear-gallery-item:hover img { transform: scale(1.06); filter: contrast(1.2) saturate(1.3); }
-.bear-gallery-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(13,13,26,0.9) 0%, transparent 50%);
-  opacity: 0; transition: opacity 0.4s;
-  display: flex; align-items: flex-end; padding: 1.2rem;
-}
-.bear-gallery-item:hover .bear-gallery-overlay { opacity: 1; }
-.bear-gallery-overlay h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.06em; color: #fff; }
-.bear-gallery-overlay span { display: block; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bear-accent); margin-top: 0.2rem; }
-
-/* ─── BEAR COMMISSION BAND ─── */
-.bear-commission-band {
-  padding: 5rem; background: var(--bear-mid); text-align: center;
-}
-.bear-commission-band h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(2.5rem, 4vw, 4.5rem); letter-spacing: 0.04em;
-  color: #fff; margin-bottom: 1rem;
-}
-.bear-commission-band h2 span { color: var(--bear-accent); }
-.bear-commission-band p { font-size: 0.9rem; color: rgba(240,240,240,0.5); line-height: 1.9; max-width: 480px; margin: 0 auto 2rem; }
-
-/* ─── LIGHTBOX ─── */
-.lightbox {
-  position: fixed; inset: 0; z-index: 500;
-  background: rgba(0,0,0,0.94);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; pointer-events: none; transition: opacity 0.4s;
-}
-.lightbox.open { opacity: 1; pointer-events: all; }
-.lightbox-inner {
-  position: relative; max-width: 90vw; max-height: 90vh;
-  display: flex; flex-direction: column; align-items: center;
-}
-.lightbox-inner img { max-width: 100%; max-height: 78vh; object-fit: contain; display: block; }
-.lightbox-caption { margin-top: 1.2rem; text-align: center; }
-.lightbox-caption h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; color: #fff; }
-.lightbox-caption span { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
-.lightbox-close {
-  position: absolute; top: -3rem; right: 0;
-  background: none; border: none; color: rgba(255,255,255,0.6);
-  font-size: 1.5rem; cursor: pointer; transition: color 0.3s;
-}
-.lightbox-close:hover { color: #fff; }
-.lightbox-nav {
-  position: absolute; top: 50%; transform: translateY(-50%);
-  background: none; border: none; color: rgba(255,255,255,0.5);
-  font-size: 2.5rem; cursor: pointer; padding: 1rem; transition: color 0.3s;
-}
-.lightbox-nav:hover { color: #fff; }
-.lightbox-prev { left: -4rem; }
-.lightbox-next { right: -4rem; }
-
-/* ─── FOOTER ─── */
-footer {
-  padding: 3rem 5rem;
-  display: flex; justify-content: space-between; align-items: center;
-}
-body.louise-mode footer { background: var(--charcoal); }
-body.bear-mode footer { background: #050510; border-top: 1px solid rgba(255,45,85,0.1); }
-.footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300; color: rgba(255,255,255,0.6); }
-body.bear-mode .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 0.06em; color: var(--bear-accent); }
-.footer-links { display: flex; gap: 1.8rem; }
-.footer-links a {
-  color: rgba(255,255,255,0.35); font-size: 0.65rem; letter-spacing: 0.18em;
-  text-transform: uppercase; text-decoration: none; transition: color 0.3s;
-}
-.footer-links a:hover { color: rgba(255,255,255,0.8); }
-footer span { font-size: 0.7rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.25); }
-
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-/* ─── RESPONSIVE ─── */
-@media (max-width: 900px) {
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  .hero-louise, .hero-bear { grid-template-columns: 1fr; min-height: auto; }
-  .hero-louise-right, .hero-bear-right { display: none; }
-  .hero-louise-left { padding: 6rem 1.5rem 3rem; }
-  .hero-bear-left { padding: 6rem 1.5rem 3rem; }
-  .about-louise, .about-bear { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
-  .about-img-wrap::before { display: none; }
-  .gallery-louise, .gallery-bear { padding: 3rem 0; }
-  .gallery-header, .bear-gallery-header { padding: 0 1rem; flex-direction: column; align-items: flex-start; gap: 1rem; }
-  .gallery-grid { display: none; } /* replaced by carousel on mobile */
-  .bear-gallery-grid { display: none; }
-  .carousel-wrap { display: block !important; }
-  .tab-pills, .bear-tab-pills { overflow-x: auto; }
-  .commission-band, .bear-commission-band { padding: 4rem 2rem; }
-  .lessons-section { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
-  .lessons-img { display: none; }
-  .contact-section { grid-template-columns: 1fr; padding: 4rem 1.5rem; gap: 2.5rem; }
-  footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1.2rem; text-align: center; }
-  .footer-links { flex-wrap: wrap; justify-content: center; }
-}
-@media (min-width: 901px) {
-  .carousel-wrap { display: none !important; }
-}
-@media (min-width: 901px) and (max-width: 1200px) {
-  .gallery-grid { columns: 2; }
-  .bear-gallery-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-/* ─── LARGE SCREENS (24" monitors, 1440px+) ─── */
-@media (min-width: 1440px) {
-  /* Cap content width so nothing stretches silly wide */
-  .hero-louise-left,
-  .hero-bear-left {
-    padding-left: calc((100vw - 1400px) / 2 + 5rem);
-    max-width: 700px;
-  }
-  .about-louise,
-  .about-bear {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding-left: 5rem;
-    padding-right: 5rem;
-  }
-  .gallery-louise,
-  .gallery-bear {
-    max-width: 1600px;
-    margin: 0 auto;
-  }
-  .gallery-header,
-  .bear-gallery-header {
-    max-width: 1560px;
-    margin: 0 auto 3rem;
-  }
-  .gallery-grid {
-    max-width: 1560px;
-    margin: 0 auto;
-    columns: 4; /* more columns on wide screens = better use of space */
-  }
-  .bear-gallery-grid {
-    max-width: 1560px;
-    margin: 0 auto;
-    grid-template-columns: repeat(5, 1fr);
-  }
-  .commission-band,
-  .bear-commission-band {
-    padding: 7rem 5rem;
-  }
-  .lessons-section {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  .contact-section {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-  nav {
-    padding-left: calc((100vw - 1400px) / 2 + 3rem);
-    padding-right: calc((100vw - 1400px) / 2 + 3rem);
-  }
-  footer {
-    padding-left: calc((100vw - 1400px) / 2 + 3rem);
-    padding-right: calc((100vw - 1400px) / 2 + 3rem);
-  }
-}
-
-/* ─── VERY WIDE (2560px ultrawide) ─── */
-@media (min-width: 1920px) {
-  .gallery-grid { columns: 5; }
-  .bear-gallery-grid { grid-template-columns: repeat(6, 1fr); }
-  .hero-louise, .hero-bear {
-    max-width: 1920px;
-    margin: 0 auto;
-  }
+@media(max-width:1100px){.gallery-grid{columns:2}}
+@media(max-width:900px){
+  :root{--cx:1.5rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:4rem}
+  .hero-right{display:none}
+  .hero-left{padding:5rem var(--cx) 3rem var(--cx)}
+  .hero-left::after{display:none}
+  .about{padding:4rem 0}.about .container{grid-template-columns:1fr;gap:2.5rem}
+  .about-img-wrap::before,.about-img-wrap::after{display:none}
+  .gallery{padding:3rem 0}
+  .gallery-head{flex-direction:column;align-items:flex-start;gap:1rem}
+  .gallery-grid{display:none}.carousel-wrap{display:block}
+  .commission-band{padding:4rem 0}
+  .lessons{padding:4rem 0}.lessons .container{grid-template-columns:1fr}.lessons-img{display:none}
+  .contact{padding:4rem 0}.contact .container{grid-template-columns:1fr;gap:2.5rem}
+  .footer-inner{flex-direction:column;text-align:center;padding:2rem var(--cx)}
+  .footer-links{justify-content:center}
 }
 </style>
 </head>
-<body class="louise-mode" id="top">
-
-<!-- LIGHTBOX -->
+<body>
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
   <div class="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightboxBtn()">✕</button>
     <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">‹</button>
     <img id="lightbox-img" src="" alt="">
     <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">›</button>
-    <div class="lightbox-caption">
-      <h4 id="lightbox-title"></h4>
-      <span id="lightbox-sub"></span>
-    </div>
+    <div class="lightbox-caption"><h4 id="lightbox-title"></h4><span id="lightbox-sub"></span></div>
   </div>
 </div>
-
-<!-- NAV -->
 <nav id="nav">
-  <div class="nav-brand">
-    <div class="nav-brand-name" id="nav-name">Bear & <em>Louise</em></div>
-    <div class="nav-brand-sub">South African Artists</div>
-  </div>
-  <ul class="nav-links louise-only">
-    <li><a href="#gallery-louise">Gallery</a></li>
-    <li><a href="#lessons">Art Lessons</a></li>
-    <li><a href="#contact-louise">Contact</a></li>
-  </ul>
-  <ul class="nav-links bear-only">
-    <li><a href="#gallery-bear">Gallery</a></li>
-    <li><a href="#contact-bear">Contact</a></li>
-  </ul>
-  <div class="artist-toggle">
-    <button class="toggle-btn active-louise" id="btn-louise" onclick="switchArtist('louise')">Louise</button>
-    <button class="toggle-btn" id="btn-bear" onclick="switchArtist('bear')">Bear 🐾</button>
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <div class="nav-brand-name">Bear & <em>Louise</em></div>
+      <div class="nav-brand-sub">South African Artists</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#lessons">Art Lessons</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="bear.html" class="nav-bear-link">Bear 🐾</a>
   </div>
 </nav>
-
-<!-- ══════════════════════════════════
-     LOUISE
-══════════════════════════════════ -->
-
-<section class="hero-louise louise-only" id="hero-louise">
-  <div class="hero-louise-left">
+<section class="hero">
+  <div class="hero-left">
     <p class="eyebrow">Fine Artist · South Africa</p>
     <h1 class="hero-title">Oils. Watercolours.<br><em>Soul on canvas.</em></h1>
     <p class="hero-sub">Louise Hansen captures the light, land and life of South Africa in rich oils and delicate watercolours. Landscapes, florals, commissions — each painting unmistakably hers.</p>
     <div class="hero-actions">
-      <a href="#gallery-louise" class="btn-primary">View Gallery</a>
-      <a href="#contact-louise" class="btn-ghost">Enquire / Commission</a>
+      <a href="#gallery" class="btn-primary">View Gallery</a>
+      <a href="#contact" class="btn-ghost">Enquire / Commission</a>
     </div>
   </div>
-  <div class="hero-louise-right">
-    <img src="Louiseoil14.jpg" alt="Oil painting by Louise Hansen">
-  </div>
+  <div class="hero-right"><img src="Louiseoil14.jpg" alt="Oil painting by Louise Hansen"></div>
 </section>
-
-<section class="about-louise louise-only">
-  <div class="about-img-wrap">
-    <img src="Louiseprofile4.jpg" alt="Louise Hansen at work">
-  </div>
-  <div class="about-text">
-    <p class="section-label">Meet the Artist</p>
-    <h2>Painting is <em>breathing</em><br>in colour</h2>
-    <p>With a brush in hand and the South African landscape as her muse, Louise has spent a lifetime capturing moments of extraordinary beauty in oil and watercolour.</p>
-    <p>Her work is predominantly <strong>commission-based</strong> — painted with intimacy and intention for clients who want something lasting, something that belongs to them alone.</p>
-    <p>Her work hangs in homes across South Africa and is on permanent display at <strong>Gallery Blou Donkie</strong> in Clarens.</p>
-    <div class="medium-tags">
-      <span class="medium-tag">Oils</span>
-      <span class="medium-tag">Watercolour</span>
-      <span class="medium-tag">Pencil</span>
-      <span class="medium-tag">Commissions Welcome</span>
+<section class="about">
+  <div class="container">
+    <div class="about-img-wrap"><img src="Louiseprofile4.jpg" alt="Louise Hansen at work"></div>
+    <div class="about-text">
+      <span class="section-label">Meet the Artist</span>
+      <h2>Painting is <em>breathing</em><br>in colour</h2>
+      <p>With a brush in hand and the South African landscape as her muse, Louise has spent a lifetime capturing moments of extraordinary beauty in oil and watercolour.</p>
+      <p>Her work is predominantly <strong>commission-based</strong> — painted with intimacy and intention for clients who want something lasting, something that belongs to them alone.</p>
+      <p>Her work hangs in homes across South Africa and is on permanent display at <strong>Gallery Blou Donkie</strong> in Clarens.</p>
+      <div class="medium-tags"><span class="medium-tag">Oils</span><span class="medium-tag">Watercolour</span><span class="medium-tag">Pencil</span><span class="medium-tag">Commissions Welcome</span></div>
     </div>
   </div>
 </section>
-
-<!-- GALLERY WITH TABS -->
-<section class="gallery-louise louise-only" id="gallery-louise">
-  <div class="gallery-header">
-    <div>
-      <p class="section-label" style="font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:0.6rem;">Original Works</p>
-      <h2>The <em>Collection</em></h2>
-    </div>
-    <div class="tab-pills">
-      <button class="tab-pill active" onclick="switchTab('oils', this)">Oils</button>
-      <button class="tab-pill" onclick="switchTab('watercolour', this)">Watercolour</button>
-      <button class="tab-pill" onclick="switchTab('pencil', this)">Pencil</button>
-    </div>
-  </div>
-
-  <!-- OILS TAB -->
-  <div class="tab-panel active" id="tab-oils">
-    <!-- Desktop grid -->
-    <div class="gallery-grid">
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil1.jpg','Golden Fields','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil1.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Golden Fields</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item portrait" onclick="openLightbox('Louiseoil2.jpg','Karoo Sunset','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil2.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Karoo Sunset</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil3.jpg','Mountain Light','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil3.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Mountain Light</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item portrait" onclick="openLightbox('Louiseoil4.jpg','Open Veld','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil4.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Open Veld</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil6.jpg','Clarens Valley','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil6.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Clarens Valley</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil7.jpg','Free State Road','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil7.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Free State Road</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil8.jpg','Harvest Season','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil8.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Harvest Season</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil9.jpg','Autumn Poplars','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil9.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Autumn Poplars</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil10.jpg','Blue Mountains','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil10.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Blue Mountains</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil11.jpg','Wide Plains','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil11.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Wide Plains</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil12.jpg','Storm Coming','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil12.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Storm Coming</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil13.jpg','Farm Homestead','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil13.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Farm Homestead</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil15.jpg','Golden Afternoon','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil15.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Golden Afternoon</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil16.jpg','Wide Veld','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil16.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Wide Veld</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil17.jpg','Dam Reflections','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil17.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Dam Reflections</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil18.jpg','Dramatic Sky','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil18.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Dramatic Sky</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil19.jpg','Cattle at Dusk','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil19.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Cattle at Dusk</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil20.jpg','Cows in Field','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil20.jpg" alt="" loading="lazy" style="object-position: center 40%;"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Cows in Field</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil21.jpg','Winter Willows','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil21.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Winter Willows</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil22.jpg','Orange Veld','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil22.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Orange Veld</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil23.jpg','Distant Hills','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil23.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Distant Hills</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil24.jpg','River Bend','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil24.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>River Bend</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil25.jpg','Klein Karoo','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil25.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Klein Karoo</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil26.jpg','Earth Tones','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil26.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Earth Tones</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil27.jpg','Golden Hour','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil27.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Golden Hour</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil28.jpg','Stormy Peaks','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil28.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Stormy Peaks</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil29.jpg','Still Waters','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil29.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Still Waters</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil30.jpg','Yellow Trees','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil30.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Yellow Trees</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil31.jpg','Lake View','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil31.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Lake View</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item portrait" onclick="openLightbox('Louiseoil32.jpg','Framed Study','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil32.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Framed Study</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil33.jpg','White Farmhouse','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil33.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>White Farmhouse</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil34.jpg','Dusk Path','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil34.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Dusk Path</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil35.jpg','Dry Season','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil35.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Dry Season</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil36.jpg','Landscape Study','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil36.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Landscape Study</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil37.jpg','Purple Mountain','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil37.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Purple Mountain</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil38.jpg','Winding Road','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil38.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Winding Road</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil39.jpg','Bougainvillea','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil39.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Bougainvillea</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil40.jpg','Rust and Gold','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil40.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Rust and Gold</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil41.jpg','Veld at Noon','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil41.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Veld at Noon</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil42.jpg','Red Soil','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil42.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Red Soil</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil43.jpg','Highveld','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil43.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Highveld</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil44.jpg','Open Skies','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil44.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Open Skies</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil45.jpg','Farm Track','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil45.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Farm Track</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil46.jpg','Drifting Clouds','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil46.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Drifting Clouds</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil47.jpg','Red Earth','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil47.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Red Earth</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil48.jpg','Highveld Horizon','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil48.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Highveld Horizon</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil49.jpg','Golden Road','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil49.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Golden Road</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil50.jpg','Late Light','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil50.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Late Light</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil51.jpg','River Trail','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil51.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>River Trail</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil52.jpg','Vast Plain','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil52.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Vast Plain</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil53.jpg','Sunrise Farm','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil53.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Sunrise Farm</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil54.jpg','Wheat Fields','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil54.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Wheat Fields</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil55.jpg','Mountain Stream','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil55.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Mountain Stream</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil56.jpg','Rocky Outcrop','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil56.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Rocky Outcrop</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil57.jpg','Dusk Pink','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil57.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Dusk Pink</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil58.jpg','Platteland','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil58.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Platteland</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil59.jpg','Afternoon Gold','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil59.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Afternoon Gold</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil60.jpg','Autumn Road','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil60.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Autumn Road</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil61.jpg','Endless Veld','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil61.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Endless Veld</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil62.jpg','Fiery Sky','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil62.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Fiery Sky</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil63.jpg','Kopje Sunset','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil63.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Kopje Sunset</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil64.jpg','Misty Valley','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil64.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Misty Valley</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil65.jpg','Burnt Sienna','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil65.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Burnt Sienna</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil66.jpg','Sandstone Ridge','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil66.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Sandstone Ridge</h4><span>Oil on Canvas</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louiseoil67.jpg','Last Light','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil67.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Last Light</h4><span>Oil on Canvas</span></div></div></div>
-    </div>
-    <!-- Mobile carousel -->
-    <div class="carousel-wrap" id="carousel-oils" style="display:none;">
-      <div class="carousel-btns"><button class="carousel-btn" onclick="carouselPrev('oils')">‹</button><button class="carousel-btn" onclick="carouselNext('oils')">›</button></div>
-      <div class="carousel-track" id="track-oils"></div>
-      <div class="carousel-nav" id="dots-oils"></div>
-    </div>
-  </div>
-
-  <!-- WATERCOLOUR TAB -->
-  <div class="tab-panel" id="tab-watercolour">
-    <div class="gallery-grid">
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc1.jpg','Watercolour I','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc1.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour I</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc2.jpg','Watercolour II','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc2.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour II</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc3.jpg','Watercolour III','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc3.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour III</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc4.jpg','Watercolour IV','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc4.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour IV</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc5.jpg','Watercolour V','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc5.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour V</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc6.jpg','Watercolour VI','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc6.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour VI</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc7.jpg','Watercolour VII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc7.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour VII</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc8.jpg','Watercolour VIII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc8.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour VIII</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc9.jpg','Watercolour IX','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc9.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour IX</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc10.jpg','Watercolour X','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc10.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour X</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc11.jpg','Watercolour XI','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc11.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XI</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc12.jpg','Watercolour XII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc12.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XII</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc13.jpg','Watercolour XIII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc13.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XIII</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc14.jpg','Watercolour XIV','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc14.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XIV</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item portrait" onclick="openLightbox('Louisewc15.jpg','Watercolour XV','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc15.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XV</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc16.jpg','Watercolour XVI','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc16.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XVI</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc17.jpg','Watercolour XVII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc17.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XVII</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc18.jpg','Watercolour XVIII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc18.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XVIII</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc19.jpg','Watercolour XIX','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc19.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XIX</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc20.jpg','Watercolour XX','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc20.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XX</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc21.jpg','Watercolour XXI','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc21.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XXI</h4><span>Watercolour on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisewc22.jpg','Watercolour XXII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc22.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XXII</h4><span>Watercolour on Paper</span></div></div></div>
-    </div>
-    <div class="carousel-wrap" id="carousel-wc" style="display:none;">
-      <div class="carousel-btns"><button class="carousel-btn" onclick="carouselPrev('wc')">‹</button><button class="carousel-btn" onclick="carouselNext('wc')">›</button></div>
-      <div class="carousel-track" id="track-wc"></div>
-      <div class="carousel-nav" id="dots-wc"></div>
-    </div>
-  </div>
-
-  <!-- PENCIL TAB -->
-  <div class="tab-panel" id="tab-pencil">
-    <div class="gallery-grid">
-      <div class="gallery-item landscape" onclick="openLightbox('Louisepencil1.jpg','Pencil Study I','Pencil on Paper')"><div class="gallery-thumb"><img src="Louisepencil1.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Pencil Study I</h4><span>Pencil on Paper</span></div></div></div>
-      <div class="gallery-item landscape" onclick="openLightbox('Louisepencil2.jpg','Pencil Study II','Pencil on Paper')"><div class="gallery-thumb"><img src="Louisepencil2.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Pencil Study II</h4><span>Pencil on Paper</span></div></div></div>
-    </div>
-    <div class="carousel-wrap" id="carousel-pencil" style="display:none;">
-      <div class="carousel-btns"><button class="carousel-btn" onclick="carouselPrev('pencil')">‹</button><button class="carousel-btn" onclick="carouselNext('pencil')">›</button></div>
-      <div class="carousel-track" id="track-pencil"></div>
-      <div class="carousel-nav" id="dots-pencil"></div>
-    </div>
-  </div>
-</section>
-
-<!-- COMMISSIONS / BLOU DONKIE -->
-<div class="commission-band louise-only">
-  <span class="section-label">Work with Louise</span>
-  <h2>Every great home deserves<br><em>original art</em></h2>
-  <p>Louise works primarily on commission — your landscape, your memory, your story, painted with care. Find her work year-round at <strong style="color:var(--gold);">Gallery Blou Donkie</strong> in Clarens, or reach out directly to discuss a commission.</p>
-  <div style="margin-top:0.5rem;">
-    <a href="https://api.whatsapp.com/send/?phone=27826145688&text&type=phone_number&app_absent=0" target="_blank" class="btn-gold">
-      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      WhatsApp
-    </a>
-    <a href="mailto:louisehansenartist@gmail.com" class="btn-gold">
-      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-      Email
-    </a>
-  </div>
-</div>
-
-<!-- ART LESSONS -->
-<section class="lessons-section louise-only" id="lessons">
-  <div class="lessons-text">
-    <p class="section-label">Learn to Paint</p>
-    <h2>Art lessons with <em>Louise</em></h2>
-    <p>Louise occasionally offers painting lessons — whether you're visiting Clarens for the weekend or a local looking to develop your skills. Small groups or one-on-one, tailored to your level.</p>
-    <div class="lessons-options">
-      <div class="lesson-option">
-        <h4>Workshop — Visiting Clarens?</h4>
-        <p>Half-day or full-day painting workshops. Learn oil or watercolour technique in the landscape that inspires Louise's own work.</p>
-      </div>
-      <div class="lesson-option">
-        <h4>Ongoing Lessons — Locals Welcome</h4>
-        <p>Regular lessons for beginners through to intermediate painters. Learn at your own pace in a relaxed, creative environment.</p>
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="gallery-head">
+      <div><span class="section-label">Original Works</span><h2>The <em>Collection</em></h2></div>
+      <div class="tab-pills">
+        <button class="tab-pill active" onclick="switchTab('oils',this)">Oils</button>
+        <button class="tab-pill" onclick="switchTab('watercolour',this)">Watercolour</button>
+        <button class="tab-pill" onclick="switchTab('pencil',this)">Pencil</button>
       </div>
     </div>
-    <a href="https://api.whatsapp.com/send/?phone=27826145688&text=Hi Louise, I'd like to book an art lesson&type=phone_number&app_absent=0" target="_blank" class="btn-primary" style="margin-top:0.5rem;">Book a Lesson via WhatsApp</a>
-
-    <!-- ═══════════════════════════════════════
-         BOOKING FORM — ADD FORM CODE HERE
-         When you get the booking form from your parents,
-         replace this block with the form embed code.
-         e.g. Google Forms, Typeform, or a custom form.
-    ═══════════════════════════════════════ -->
-    <div id="booking-form-placeholder" style="margin-top:2rem; padding:1.5rem; border:1px dashed rgba(139,111,71,0.3); background:rgba(139,111,71,0.04);">
-      <p style="font-size:0.75rem; letter-spacing:0.1em; color:var(--soft-grey); text-align:center; line-height:1.8;">
-        📋 <strong style="color:var(--warm-brown); font-weight:400;">Booking form coming soon</strong><br>
-        Replace this block with your form embed code
-      </p>
+    <div class="tab-panel active" id="tab-oils">
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('Louiseoil1.jpg','Golden Fields','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil1.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Golden Fields</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil2.jpg','Karoo Sunset','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil2.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Karoo Sunset</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil3.jpg','Mountain Light','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil3.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Mountain Light</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil4.jpg','Open Veld','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil4.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Open Veld</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil6.jpg','Clarens Valley','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil6.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Clarens Valley</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil7.jpg','Free State Road','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil7.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Free State Road</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil8.jpg','Harvest Season','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil8.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Harvest Season</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil9.jpg','Autumn Poplars','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil9.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Autumn Poplars</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil10.jpg','Blue Mountains','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil10.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Blue Mountains</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil11.jpg','Wide Plains','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil11.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Wide Plains</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil12.jpg','Storm Coming','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil12.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Storm Coming</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil13.jpg','Farm Homestead','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil13.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Farm Homestead</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil14.jpg','Golden Afternoon','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil14.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Golden Afternoon</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil15.jpg','Late Summer','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil15.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Late Summer</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil16.jpg','Wide Veld','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil16.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Wide Veld</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil17.jpg','Dam Reflections','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil17.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Dam Reflections</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil18.jpg','Dramatic Sky','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil18.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Dramatic Sky</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil19.jpg','Cattle at Dusk','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil19.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Cattle at Dusk</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil20.jpg','Cows in Field','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil20.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Cows in Field</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil21.jpg','Winter Willows','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil21.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Winter Willows</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil22.jpg','Orange Veld','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil22.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Orange Veld</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil23.jpg','Distant Hills','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil23.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Distant Hills</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil24.jpg','River Bend','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil24.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>River Bend</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil25.jpg','Klein Karoo','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil25.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Klein Karoo</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil26.jpg','Earth Tones','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil26.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Earth Tones</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil27.jpg','Golden Hour','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil27.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Golden Hour</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil28.jpg','Stormy Peaks','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil28.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Stormy Peaks</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil29.jpg','Still Waters','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil29.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Still Waters</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil30.jpg','Yellow Trees','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil30.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Yellow Trees</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil31.jpg','Lake View','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil31.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Lake View</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil32.jpg','Framed Study','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil32.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Framed Study</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil33.jpg','White Farmhouse','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil33.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>White Farmhouse</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil34.jpg','Dusk Path','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil34.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Dusk Path</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil35.jpg','Dry Season','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil35.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Dry Season</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil36.jpg','Landscape Study','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil36.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Landscape Study</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil37.jpg','Purple Mountain','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil37.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Purple Mountain</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil38.jpg','Winding Road','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil38.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Winding Road</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil39.jpg','Bougainvillea','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil39.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Bougainvillea</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil40.jpg','Rust and Gold','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil40.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Rust and Gold</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil41.jpg','Veld at Noon','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil41.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Veld at Noon</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil42.jpg','Red Soil','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil42.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Red Soil</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil43.jpg','Highveld','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil43.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Highveld</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil44.jpg','Open Skies','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil44.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Open Skies</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil45.jpg','Farm Track','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil45.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Farm Track</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil46.jpg','Drifting Clouds','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil46.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Drifting Clouds</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil47.jpg','Red Earth','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil47.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Red Earth</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil48.jpg','Highveld Horizon','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil48.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Highveld Horizon</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil49.jpg','Golden Road','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil49.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Golden Road</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil50.jpg','Late Light','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil50.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Late Light</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil51.jpg','River Trail','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil51.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>River Trail</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil52.jpg','Vast Plain','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil52.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Vast Plain</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil53.jpg','Sunrise Farm','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil53.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Sunrise Farm</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil54.jpg','Wheat Fields','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil54.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Wheat Fields</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil55.jpg','Mountain Stream','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil55.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Mountain Stream</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil56.jpg','Rocky Outcrop','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil56.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Rocky Outcrop</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil57.jpg','Dusk Pink','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil57.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Dusk Pink</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil58.jpg','Platteland','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil58.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Platteland</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil59.jpg','Afternoon Gold','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil59.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Afternoon Gold</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil60.jpg','Autumn Road','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil60.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Autumn Road</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil61.jpg','Endless Veld','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil61.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Endless Veld</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil62.jpg','Fiery Sky','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil62.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Fiery Sky</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil63.jpg','Kopje Sunset','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil63.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Kopje Sunset</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil64.jpg','Misty Valley','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil64.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Misty Valley</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil65.jpg','Burnt Sienna','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil65.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Burnt Sienna</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil66.jpg','Sandstone Ridge','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil66.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Sandstone Ridge</h4><span>Oil on Canvas</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louiseoil67.jpg','Last Light','Oil on Canvas')"><div class="gallery-thumb"><img src="Louiseoil67.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Last Light</h4><span>Oil on Canvas</span></div></div></div>
+      </div>
+      <div class="carousel-wrap" id="carousel-oils"><div class="carousel-btns"><button class="carousel-btn" onclick="carouselPrev('oils')">&#8249;</button><button class="carousel-btn" onclick="carouselNext('oils')">&#8250;</button></div><div class="carousel-track" id="track-oils"></div><div class="carousel-nav" id="dots-oils"></div></div>
     </div>
-  </div><!-- end lessons-text -->
-  <div class="lessons-img">
-    <img src="Louiseprofile5.jpg" alt="Louise teaching art">
+    <div class="tab-panel" id="tab-watercolour">
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('Louisewc1.jpg','Watercolour I','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc1.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour I</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc2.jpg','Watercolour II','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc2.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour II</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc3.jpg','Watercolour III','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc3.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour III</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc4.jpg','Watercolour IV','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc4.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour IV</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc5.jpg','Watercolour V','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc5.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour V</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc6.jpg','Watercolour VI','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc6.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour VI</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc7.jpg','Watercolour VII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc7.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour VII</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc8.jpg','Watercolour VIII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc8.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour VIII</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc9.jpg','Watercolour IX','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc9.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour IX</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc10.jpg','Watercolour X','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc10.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour X</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc11.jpg','Watercolour XI','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc11.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XI</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc12.jpg','Watercolour XII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc12.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XII</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc13.jpg','Watercolour XIII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc13.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XIII</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc14.jpg','Watercolour XIV','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc14.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XIV</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc15.jpg','Watercolour XV','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc15.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XV</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc16.jpg','Watercolour XVI','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc16.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XVI</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc17.jpg','Watercolour XVII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc17.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XVII</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc18.jpg','Watercolour XVIII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc18.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XVIII</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc19.jpg','Watercolour XIX','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc19.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XIX</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc20.jpg','Watercolour XX','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc20.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XX</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc21.jpg','Watercolour XXI','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc21.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XXI</h4><span>Watercolour on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisewc22.jpg','Watercolour XXII','Watercolour on Paper')"><div class="gallery-thumb"><img src="Louisewc22.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Watercolour XXII</h4><span>Watercolour on Paper</span></div></div></div>
+      </div>
+      <div class="carousel-wrap" id="carousel-wc"><div class="carousel-btns"><button class="carousel-btn" onclick="carouselPrev('wc')">&#8249;</button><button class="carousel-btn" onclick="carouselNext('wc')">&#8250;</button></div><div class="carousel-track" id="track-wc"></div><div class="carousel-nav" id="dots-wc"></div></div>
+    </div>
+    <div class="tab-panel" id="tab-pencil">
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('Louisepencil1.jpg','Pencil Study I','Pencil on Paper')"><div class="gallery-thumb"><img src="Louisepencil1.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Pencil Study I</h4><span>Pencil on Paper</span></div></div></div>
+        <div class="gallery-item" onclick="openLightbox('Louisepencil2.jpg','Pencil Study II','Pencil on Paper')"><div class="gallery-thumb"><img src="Louisepencil2.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Pencil Study II</h4><span>Pencil on Paper</span></div></div></div>
+      </div>
+      <div class="carousel-wrap" id="carousel-pencil"><div class="carousel-btns"><button class="carousel-btn" onclick="carouselPrev('pencil')">&#8249;</button><button class="carousel-btn" onclick="carouselNext('pencil')">&#8250;</button></div><div class="carousel-track" id="track-pencil"></div><div class="carousel-nav" id="dots-pencil"></div></div>
+    </div>
   </div>
 </section>
-
-<!-- CONTACT LOUISE -->
-<section class="contact-section louise-only" id="contact-louise">
-  <div class="contact-text">
-    <h2>Find <em>Louise</em></h2>
-    <p>Louise's work is on permanent display at Gallery Blou Donkie in Clarens. Commissions, lessons and enquiries welcome — reach out directly.</p>
-  </div>
-  <div class="contact-detail">
-    <div class="contact-item">
-      <div class="contact-item-label">Gallery</div>
-      <div class="contact-item-val">Gallery Blou Donkie, Clarens</div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-item-label">Email</div>
-      <div class="contact-item-val"><a href="mailto:louisehansenartist@gmail.com">louisehansenartist@gmail.com</a></div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-item-label">WhatsApp</div>
-      <div class="contact-item-val"><a href="https://api.whatsapp.com/send/?phone=27826145688&text&type=phone_number&app_absent=0" target="_blank">+27 82 614 5688</a></div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-item-label">Instagram</div>
-      <div class="contact-item-val"><a href="https://www.instagram.com/louisehansenartist" target="_blank">@louisehansenartist</a></div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-item-label">Facebook</div>
-      <div class="contact-item-val"><a href="https://www.facebook.com/louise.hansen.735507" target="_blank">Louise Hansen Artist</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════
-     BEAR
-══════════════════════════════════ -->
-
-<section class="hero-bear bear-only" id="hero-bear">
-  <div class="hero-bear-left">
-    <p class="bear-eyebrow">Pop Art · Portraiture · Graphic Design</p>
-    <div class="bear-hero-title">
-      <div class="line-1">ART THAT</div>
-      <div class="line-2">CUTS OUT</div>
-    </div>
-    <p class="bear-hero-sub">He goes by Bear. His portraits and pop art are cut from the board itself — no frame, no border, just raw art shaped into its own form. Hyper-real faces, bold colour, pure energy.</p>
-    <div class="bear-hero-actions">
-      <a href="#gallery-bear" class="btn-bear">See the Work</a>
-      <a href="#contact-bear" class="btn-bear-ghost">Commission Bear</a>
-    </div>
-  </div>
-  <div class="hero-bear-right">
-    <!-- Bear2 as featured, no Bear25 -->
-    <div class="bear-hero-thumb"><img src="Bear2.jpg" alt="Bear art" onerror="this.parentElement.style.background='#1a1a2e'"></div>
-    <div class="bear-hero-thumb"><img src="Bear26.jpg" alt="Bear art" onerror="this.parentElement.style.background='#1a1a2e'"></div>
-    <div class="bear-hero-thumb"><img src="Bear19.jpg" alt="Bear art" onerror="this.parentElement.style.background='#1a1a2e'"></div>
-    <div class="bear-hero-thumb"><img src="Bear21.jpg" alt="Bear art" onerror="this.parentElement.style.background='#1a1a2e'"></div>
-  </div>
-</section>
-
-<section class="about-bear bear-only">
-  <div class="about-bear-text">
-    <p class="section-label">The Artist</p>
-    <h2>HE GOES BY <em>BEAR</em>.<br>NOT MANY KNOW<br>HIS REAL NAME.</h2>
-    <p>And perhaps that's the point. His art speaks loudly enough.</p>
-    <p>A graphic designer by trade with a pop art soul — Bear creates hyper-realistic portraits and caricatures, then takes it one step further: he cuts the board itself around the subject. No frame, no border, no rules. Just the face, floating free.</p>
-    <p>Seeing it in person is the only way to truly understand it.</p>
-    <div class="bear-style-tags">
-      <span class="bear-tag">Pop Art</span>
-      <span class="bear-tag">Cutout Portraits</span>
-      <span class="bear-tag">Caricature</span>
-      <span class="bear-tag">Pencil Realism</span>
-      <span class="bear-tag">Graphic Design</span>
-    </div>
-    <div class="paw-sig">Bear 🐾</div>
-  </div>
-  <div class="about-bear-img">
-    <img src="Bear1.jpg" alt="Bear the artist" onerror="this.style.minHeight='400px';this.style.background='#1a1a2e'">
-  </div>
-</section>
-
-<!-- BEAR GALLERY WITH TABS -->
-<section class="gallery-bear bear-only" id="gallery-bear">
-  <div class="bear-gallery-header">
+<div class="commission-band">
+  <div class="container">
+    <span class="section-label">Work with Louise</span>
+    <h2>Every great home deserves<br><em>original art</em></h2>
+    <p>Louise works primarily on commission — your landscape, your memory, your story, painted with care. Find her work year-round at <strong style="color:var(--gold-light);font-weight:400">Gallery Blou Donkie</strong> in Clarens.</p>
     <div>
-      <p class="section-label" style="font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--bear-accent);margin-bottom:0.6rem;">The Work</p>
-      <h2>Bear's <em>Gallery</em></h2>
-    </div>
-    <div class="bear-tab-pills">
-      <button class="bear-tab-pill active" onclick="switchBearTab('all', this)">All</button>
-      <button class="bear-tab-pill" onclick="switchBearTab('pop', this)">Pop Art</button>
-      <button class="bear-tab-pill" onclick="switchBearTab('pencil', this)">Pencil</button>
+      <a href="https://api.whatsapp.com/send/?phone=27826145688&text=Hi Louise, I'd love to commission a painting&type=phone_number&app_absent=0" target="_blank" class="btn-gold">WhatsApp</a>
+      <a href="mailto:louisehansenartist@gmail.com" class="btn-gold">Email</a>
     </div>
   </div>
-
-  <!-- Desktop grid -->
-  <div class="bear-gallery-grid" id="bear-gallery-grid">
-    <div class="bear-gallery-item wide" data-cat="pop" onclick="openLightbox('Bear2.jpg','Pop Art Portrait','Mixed Media · Cutout')"><img src="Bear2.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Pop Art Portrait</h4><span>Mixed Media · Cutout</span></div></div>
-    <div class="bear-gallery-item" data-cat="pop" onclick="openLightbox('Bear3.jpg','Character Study','Pop Art')"><img src="Bear3.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Character Study</h4><span>Pop Art</span></div></div>
-    <div class="bear-gallery-item" data-cat="pop" onclick="openLightbox('Bear4.jpg','Comic Energy','Pop Art · Cutout')"><img src="Bear4.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Comic Energy</h4><span>Pop Art · Cutout</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear6.jpg','Pencil Portrait','Pencil on Paper')"><img src="Bear6.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Pencil Portrait</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear7.jpg','The Elder','Pencil on Paper')"><img src="Bear7.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>The Elder</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear8.jpg','Cat Study','Pencil on Paper')"><img src="Bear8.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Cat Study</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear9.jpg','Soft Portrait','Pencil on Paper')"><img src="Bear9.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Soft Portrait</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear10.jpg','Study in Grey','Pencil on Paper')"><img src="Bear10.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Study in Grey</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear11.jpg','Young Face','Pencil on Paper')"><img src="Bear11.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Young Face</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear12.jpg','Elegant Study','Pencil on Paper')"><img src="Bear12.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Elegant Study</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item wide" data-cat="pop" onclick="openLightbox('Bear13.jpg','Colour Cutout','Pop Art · Cutout Board')"><img src="Bear13.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Colour Cutout</h4><span>Pop Art · Cutout Board</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear14.jpg','Baby Portrait','Pencil on Paper')"><img src="Bear14.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Baby Portrait</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear15.jpg','Infant Study','Pencil on Paper')"><img src="Bear15.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Infant Study</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear16.jpg','The Gentleman','Pencil on Paper')"><img src="Bear16.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>The Gentleman</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear17.jpg','Elder Portrait','Pencil on Paper')"><img src="Bear17.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Elder Portrait</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item" data-cat="pop" onclick="openLightbox('Bear18.jpg','Strong Face','Mixed Media')"><img src="Bear18.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Strong Face</h4><span>Mixed Media</span></div></div>
-    <div class="bear-gallery-item wide" data-cat="pop" onclick="openLightbox('Bear19.jpg','Hat Man','Pop Art · Cutout')"><img src="Bear19.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Hat Man</h4><span>Pop Art · Cutout</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear20.jpg','Classic Car','Pencil on Paper')"><img src="Bear20.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Classic Car</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item" data-cat="pop" onclick="openLightbox('Bear21.jpg','Bold Colour','Pop Art · Cutout Board')"><img src="Bear21.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Bold Colour</h4><span>Pop Art · Cutout Board</span></div></div>
-    <div class="bear-gallery-item" data-cat="pop" onclick="openLightbox('Bear22.jpg','Realism Study','Mixed Media')"><img src="Bear22.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Realism Study</h4><span>Mixed Media</span></div></div>
-    <div class="bear-gallery-item" data-cat="pop" onclick="openLightbox('Bear23.jpg','Dramatic Portrait','Mixed Media')"><img src="Bear23.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Dramatic Portrait</h4><span>Mixed Media</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear24.jpg','Sketch Study','Pencil on Paper')"><img src="Bear24.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Sketch Study</h4><span>Pencil on Paper</span></div></div>
-    <div class="bear-gallery-item wide" data-cat="pop" onclick="openLightbox('Bear26.jpg','Vivid Face','Pop Art · Cutout')"><img src="Bear26.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Vivid Face</h4><span>Pop Art · Cutout</span></div></div>
-    <div class="bear-gallery-item" data-cat="pencil" onclick="openLightbox('Bear27.jpg','Pencil Sketch','Pencil on Paper')"><img src="Bear27.jpg" alt="" loading="lazy"><div class="bear-gallery-overlay"><h4>Pencil Sketch</h4><span>Pencil on Paper</span></div></div>
-  </div>
-
-  <!-- Mobile carousel Bear -->
-  <div class="carousel-wrap" id="carousel-bear" style="display:none;">
-    <div class="carousel-btns"><button class="carousel-btn bear-carousel-btn" onclick="carouselPrev('bear')">‹</button><button class="carousel-btn bear-carousel-btn" onclick="carouselNext('bear')">›</button></div>
-    <div class="carousel-track" id="track-bear"></div>
-    <div class="carousel-nav" id="dots-bear"></div>
-  </div>
-</section>
-
-<!-- BEAR COMMISSION -->
-<div class="bear-commission-band bear-only" id="contact-bear">
-  <p class="section-label" style="font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--bear-accent);margin-bottom:1rem;display:block;">Commission Bear</p>
-  <h2>YOUR FACE.<br><span>HIS HANDS.</span></h2>
-  <p>Commission a portrait, caricature or pop art cutout. Each piece is one of a kind — cut from the board, shaped by his hand.</p>
-  <a href="https://api.whatsapp.com/send/?phone=27826145688&text=Hi Bear, I'd like to commission a piece&type=phone_number&app_absent=0" target="_blank" class="btn-bear" style="display:inline-block;padding:1rem 2.5rem;text-decoration:none;">WhatsApp Bear</a>
 </div>
-
-<!-- CONTACT BEAR -->
-<section class="contact-section bear-only">
-  <div class="contact-text">
-    <h2>Find <em>Bear</em></h2>
-    <p>Commission a portrait, caricature, pop art cutout or graphic design piece. Reach out directly to discuss your idea.</p>
+<section class="lessons" id="lessons">
+  <div class="container">
+    <div class="lessons-text">
+      <span class="section-label">Learn to Paint</span>
+      <h2>Art lessons with <em>Louise</em></h2>
+      <p>Louise occasionally offers painting lessons — whether you're visiting Clarens for the weekend or a local looking to develop your skills. Small groups or one-on-one, tailored to your level.</p>
+      <div class="lessons-options">
+        <div class="lesson-option"><h4>Workshop — Visiting Clarens?</h4><p>Half-day or full-day painting workshops. Learn oil or watercolour technique in the landscape that inspires Louise's own work.</p></div>
+        <div class="lesson-option"><h4>Ongoing Lessons — Locals Welcome</h4><p>Regular lessons for beginners through to intermediate painters. Learn at your own pace in a relaxed, creative environment.</p></div>
+      </div>
+      <a href="https://api.whatsapp.com/send/?phone=27826145688&text=Hi Louise, I'd like to book an art lesson — could you let me know what's available?&type=phone_number&app_absent=0" target="_blank" class="btn-primary" style="margin-top:0.5rem">Book a Lesson via WhatsApp</a>
+      <div class="whatsapp-note"><strong>Message Louise directly</strong> — she'll reply with available dates, what to bring, and what to expect. First-timers very welcome.</div>
+      <div class="booking-placeholder"><p>📋 <strong style="color:var(--warm-brown);font-weight:400">Online booking form coming soon</strong><br>Replace this block with your form embed code</p></div>
+    </div>
+    <div class="lessons-img"><img src="Louiseprofile5.jpg" alt="Louise teaching art"></div>
   </div>
-  <div class="contact-detail">
-    <div class="contact-item">
-      <div class="contact-item-label">WhatsApp</div>
-      <div class="contact-item-val"><a href="https://api.whatsapp.com/send/?phone=27826145688&text&type=phone_number&app_absent=0" target="_blank">+27 82 614 5688</a></div>
+</section>
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-text">
+      <h2>Find <em>Louise</em></h2>
+      <p>Louise's work is on permanent display at Gallery Blou Donkie in Clarens. Commissions, lessons and enquiries welcome — reach out directly.</p>
     </div>
-    <div class="contact-item">
-      <div class="contact-item-label">Email</div>
-      <div class="contact-item-val"><a href="mailto:louisehansenartist@gmail.com">louisehansenartist@gmail.com</a></div>
-    </div>
-    <div class="contact-item">
-      <div class="contact-item-label">Instagram</div>
-      <div class="contact-item-val"><a href="https://www.instagram.com/louisehansenartist" target="_blank">@louisehansenartist</a></div>
+    <div class="contact-detail">
+      <div class="contact-item"><div class="contact-item-label">Gallery</div><div class="contact-item-val">Gallery Blou Donkie, Clarens</div></div>
+      <div class="contact-item"><div class="contact-item-label">Email</div><div class="contact-item-val"><a href="mailto:louisehansenartist@gmail.com">louisehansenartist@gmail.com</a></div></div>
+      <div class="contact-item"><div class="contact-item-label">WhatsApp</div><div class="contact-item-val"><a href="https://api.whatsapp.com/send/?phone=27826145688" target="_blank">+27 82 614 5688</a></div></div>
+      <div class="contact-item"><div class="contact-item-label">Instagram</div><div class="contact-item-val"><a href="https://www.instagram.com/louisehansenartist" target="_blank">@louisehansenartist</a></div></div>
+      <div class="contact-item"><div class="contact-item-label">Facebook</div><div class="contact-item-val"><a href="https://www.facebook.com/louise.hansen.735507" target="_blank">Louise Hansen Artist</a></div></div>
     </div>
   </div>
 </section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-brand" id="footer-brand">Bear & Louise</div>
-  <div class="footer-links">
-    <a href="https://www.instagram.com/louisehansenartist" target="_blank">Instagram</a>
-    <a href="https://www.facebook.com/louise.hansen.735507" target="_blank">Facebook</a>
-    <a href="https://api.whatsapp.com/send/?phone=27826145688" target="_blank">WhatsApp</a>
-    <a href="mailto:louisehansenartist@gmail.com">Email</a>
+  <div class="footer-inner">
+    <div class="footer-brand">Bear & <em>Louise</em></div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/louisehansenartist" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/louise.hansen.735507" target="_blank">Facebook</a>
+      <a href="https://api.whatsapp.com/send/?phone=27826145688" target="_blank">WhatsApp</a>
+      <a href="mailto:louisehansenartist@gmail.com">Email</a>
+    </div>
+    <span class="copy">© 2026</span>
   </div>
-  <span>© 2026</span>
 </footer>
-
 <script>
-// ─── ARTIST SWITCH ───────────────────────
-let currentArtist = 'louise';
-
-function switchArtist(artist) {
-  currentArtist = artist;
-  const body = document.body;
-  const btnL = document.getElementById('btn-louise');
-  const btnB = document.getElementById('btn-bear');
-  const navName = document.getElementById('nav-name');
-
-  if (artist === 'louise') {
-    body.className = 'louise-mode';
-    btnL.className = 'toggle-btn active-louise';
-    btnB.className = 'toggle-btn';
-    navName.innerHTML = 'Bear & <em>Louise</em>';
-    setTimeout(() => document.getElementById('hero-louise').scrollIntoView({ behavior: 'smooth' }), 50);
-  } else {
-    body.className = 'bear-mode';
-    btnB.className = 'toggle-btn active-bear';
-    btnL.className = 'toggle-btn';
-    navName.innerHTML = '<em>Bear</em> & Louise';
-    setTimeout(() => document.getElementById('hero-bear').scrollIntoView({ behavior: 'smooth' }), 50);
-  }
-}
-
-// ─── LOUISE TABS ─────────────────────────
-function switchTab(tab, pill) {
-  document.querySelectorAll('.tab-pill').forEach(p => p.classList.remove('active'));
-  pill.classList.add('active');
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.getElementById('tab-' + tab).classList.add('active');
-  setCV();
-}
-
-// ─── BEAR TABS ────────────────────────────
-function switchBearTab(cat, pill) {
-  document.querySelectorAll('.bear-tab-pill').forEach(p => p.classList.remove('active'));
-  pill.classList.add('active');
-  document.querySelectorAll('#bear-gallery-grid .bear-gallery-item').forEach(item => {
-    if (cat === 'all' || item.dataset.cat === cat) {
-      item.style.display = '';
-    } else {
-      item.style.display = 'none';
-    }
-  });
-}
-
-// ─── CAROUSEL ────────────────────────────
-const carouselState = {};
-
-function buildCarousel(id, items) {
-  const track = document.getElementById('track-' + id);
-  const dotsEl = document.getElementById('dots-' + id);
-  if (!track || track.children.length > 0) return;
-  const isBear = id === 'bear';
-
-  items.forEach((item, i) => {
-    const slide = document.createElement('div');
-    slide.className = 'carousel-slide';
-    slide.innerHTML = `
-      <img src="${item.src}" alt="${item.title}" loading="lazy" style="pointer-events:none;-webkit-user-drag:none;">
-      <div class="carousel-caption">
-        <h4>${item.title}</h4>
-        <span>${item.sub}</span>
-      </div>`;
-    slide.onclick = () => openLightbox(item.src, item.title, item.sub);
-    track.appendChild(slide);
-
-    const dot = document.createElement('button');
-    dot.className = 'carousel-dot' + (isBear ? ' bear-carousel-dot' : '') + (i === 0 ? ' active' : '');
-    dot.onclick = () => goToSlide(id, i);
-    dotsEl.appendChild(dot);
-  });
-
-  carouselState[id] = { current: 0, total: items.length };
-}
-
-function updateCarousel(id) {
-  const state = carouselState[id];
-  if (!state) return;
-  const track = document.getElementById('track-' + id);
-  const slideWidth = track.children[0]?.offsetWidth + 12 || 0;
-  track.style.transform = `translateX(-${state.current * slideWidth}px)`;
-  document.querySelectorAll(`#dots-${id} .carousel-dot`).forEach((d, i) => {
-    d.classList.toggle('active', i === state.current);
-  });
-}
-
-function carouselNext(id) {
-  const state = carouselState[id];
-  if (!state) return;
-  state.current = (state.current + 1) % state.total;
-  updateCarousel(id);
-}
-
-function carouselPrev(id) {
-  const state = carouselState[id];
-  if (!state) return;
-  state.current = (state.current - 1 + state.total) % state.total;
-  updateCarousel(id);
-}
-
-function goToSlide(id, i) {
-  carouselState[id].current = i;
-  updateCarousel(id);
-}
-
-// Build carousel data from gallery items
-function initCarousels() {
-  const oilItems = [], wcItems = [], pencilItems = [], bearItems = [];
-
-  document.querySelectorAll('#tab-oils .gallery-item').forEach(el => {
-    const img = el.querySelector('img');
-    const h4 = el.querySelector('h4');
-    const span = el.querySelector('span');
-    if (img) oilItems.push({ src: img.src.split('/').pop(), title: h4?.textContent || '', sub: span?.textContent || '' });
-  });
-  document.querySelectorAll('#tab-watercolour .gallery-item').forEach(el => {
-    const img = el.querySelector('img');
-    const h4 = el.querySelector('h4');
-    const span = el.querySelector('span');
-    if (img) wcItems.push({ src: img.src.split('/').pop(), title: h4?.textContent || '', sub: span?.textContent || '' });
-  });
-  document.querySelectorAll('#tab-pencil .gallery-item').forEach(el => {
-    const img = el.querySelector('img');
-    const h4 = el.querySelector('h4');
-    const span = el.querySelector('span');
-    if (img) pencilItems.push({ src: img.src.split('/').pop(), title: h4?.textContent || '', sub: span?.textContent || '' });
-  });
-  document.querySelectorAll('#bear-gallery-grid .bear-gallery-item').forEach(el => {
-    const img = el.querySelector('img');
-    const h4 = el.querySelector('h4');
-    const span = el.querySelector('span');
-    if (img) bearItems.push({ src: img.src.split('/').pop(), title: h4?.textContent || '', sub: span?.textContent || '' });
-  });
-
-  buildCarousel('oils', oilItems);
-  buildCarousel('wc', wcItems);
-  buildCarousel('pencil', pencilItems);
-  buildCarousel('bear', bearItems);
-
-  // show carousels on mobile
-  if (window.innerWidth <= 900) {
-    ['oils','wc','pencil','bear'].forEach(id => {
-      const el = document.getElementById('carousel-' + id);
-      if (el) el.style.display = 'block';
-    });
-  }
-}
-
-window.addEventListener('load', initCarousels);
-window.addEventListener('resize', () => {
-  const isMobile = window.innerWidth <= 900;
-  ['oils','wc','pencil','bear'].forEach(id => {
-    const el = document.getElementById('carousel-' + id);
-    if (el) el.style.display = isMobile ? 'block' : 'none';
-  });
-});
-
-// ─── LIGHTBOX ────────────────────────────
-let allImages = [];
-let currentIndex = 0;
-
-function buildImageList(src) {
-  allImages = [];
-  const selector = currentArtist === 'louise'
-    ? '.louise-only .gallery-item'
-    : '.bear-only .bear-gallery-item';
-  document.querySelectorAll(selector).forEach(el => {
-    const onclick = el.getAttribute('onclick') || '';
-    const match = onclick.match(/openLightbox\('([^']+)','([^']+)','([^']+)'\)/);
-    if (match) allImages.push({ src: match[1], title: match[2], sub: match[3] });
-  });
-  currentIndex = allImages.findIndex(i => i.src === src);
-  if (currentIndex < 0) currentIndex = 0;
-}
-
-function openLightbox(src, title, sub) {
-  buildImageList(src);
-  setLightboxImage(currentIndex);
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function setLightboxImage(idx) {
-  if (!allImages.length) return;
-  const item = allImages[idx];
-  document.getElementById('lightbox-img').src = item.src;
-  document.getElementById('lightbox-title').textContent = item.title;
-  document.getElementById('lightbox-sub').textContent = item.sub;
-}
-
-function lightboxNav(dir) {
-  currentIndex = (currentIndex + dir + allImages.length) % allImages.length;
-  setLightboxImage(currentIndex);
-}
-
-function closeLightboxBtn() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-function closeLightbox(e) {
-  if (e.target === document.getElementById('lightbox')) closeLightboxBtn();
-}
-
-document.addEventListener('keydown', e => {
-  if (!document.getElementById('lightbox').classList.contains('open')) return;
-  if (e.key === 'Escape') closeLightboxBtn();
-  if (e.key === 'ArrowRight') lightboxNav(1);
-  if (e.key === 'ArrowLeft') lightboxNav(-1);
-});
-
-// ─── IMAGE PROTECTION (comprehensive) ────
-// 1. Block right-click on all images
-document.addEventListener('contextmenu', e => {
-  if (e.target.tagName === 'IMG' || e.target.closest('.gallery-item, .wc-item, .bear-gallery-item, .masonry-item, .carousel-slide, .bear-hero-thumb, .hero-louise-right, .about-img-wrap, .lessons-img, .about-bear-img')) {
-    e.preventDefault();
-    return false;
-  }
-});
-// 2. Block drag-to-save
-document.addEventListener('dragstart', e => {
-  if (e.target.tagName === 'IMG') { e.preventDefault(); return false; }
-});
-// 3. Block long-press save on mobile
-document.addEventListener('touchstart', e => {
-  if (e.target.tagName === 'IMG') e.preventDefault();
-}, { passive: false });
-// 4. Keyboard shortcut block (Ctrl+S, Ctrl+U)
-document.addEventListener('keydown', e => {
-  // allow Escape/arrows for lightbox, block save/view-source
-  if ((e.ctrlKey || e.metaKey) && ['s','u','p'].includes(e.key.toLowerCase())) {
-    e.preventDefault();
-    return false;
-  }
-  // lightbox keyboard nav
-  if (!document.getElementById('lightbox').classList.contains('open')) return;
-  if (e.key === 'Escape') closeLightboxBtn();
-  if (e.key === 'ArrowRight') lightboxNav(1);
-  if (e.key === 'ArrowLeft') lightboxNav(-1);
-});
-
-// ─── SMOOTH SCROLL ────────────────────────
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
-  });
-});
-
-// ─── NAV SHADOW ON SCROLL ─────────────────
-window.addEventListener('scroll', () => {
-  document.getElementById('nav').style.boxShadow =
-    window.scrollY > 20 ? '0 2px 30px rgba(0,0,0,0.1)' : 'none';
-});
+function switchTab(tab,pill){document.querySelectorAll('.tab-pill').forEach(p=>p.classList.remove('active'));pill.classList.add('active');document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.getElementById('tab-'+tab).classList.add('active')}
+const CS={};
+function buildCarousel(id,items){const track=document.getElementById('track-'+id);const dots=document.getElementById('dots-'+id);if(!track||track.children.length>0)return;items.forEach((item,i)=>{const s=document.createElement('div');s.className='carousel-slide';s.innerHTML='<img src="'+item.src+'" alt="'+item.title+'" loading="lazy"><div class="carousel-caption"><h4>'+item.title+'</h4><span>'+item.sub+'</span></div>';s.onclick=()=>openLightbox(item.src,item.title,item.sub);track.appendChild(s);const d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.onclick=()=>goToSlide(id,i);dots.appendChild(d)});CS[id]={current:0,total:items.length}}
+function updateCarousel(id){const s=CS[id];if(!s)return;const track=document.getElementById('track-'+id);const w=(track.children[0]?.offsetWidth||0)+12;track.style.transform='translateX(-'+(s.current*w)+'px)';document.querySelectorAll('#dots-'+id+' .carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===s.current))}
+function carouselNext(id){const s=CS[id];if(!s)return;s.current=(s.current+1)%s.total;updateCarousel(id)}
+function carouselPrev(id){const s=CS[id];if(!s)return;s.current=(s.current-1+s.total)%s.total;updateCarousel(id)}
+function goToSlide(id,i){CS[id].current=i;updateCarousel(id)}
+function initCarousels(){[['oils','#tab-oils .gallery-item'],['wc','#tab-watercolour .gallery-item'],['pencil','#tab-pencil .gallery-item']].forEach(([id,sel])=>{const items=[];document.querySelectorAll(sel).forEach(el=>{const img=el.querySelector('img');const h4=el.querySelector('h4');const span=el.querySelector('span');if(img)items.push({src:img.getAttribute('src'),title:h4?.textContent||'',sub:span?.textContent||''})});buildCarousel(id,items)})}
+function setCV(){const m=window.innerWidth<=900;['oils','wc','pencil'].forEach(id=>{const el=document.getElementById('carousel-'+id);if(el)el.style.display=m?'block':'none'})}
+window.addEventListener('load',()=>{initCarousels();setCV()});
+window.addEventListener('resize',setCV);
+let allImages=[],currentIndex=0;
+function openLightbox(src,title,sub){allImages=[];document.querySelectorAll('.gallery-item').forEach(el=>{const m=(el.getAttribute('onclick')||'').match(/openLightbox\('([^']+)','([^']+)','([^']+)'\)/);if(m)allImages.push({src:m[1],title:m[2],sub:m[3]})});currentIndex=allImages.findIndex(i=>i.src===src);if(currentIndex<0)currentIndex=0;setLBI(currentIndex);document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden'}
+function setLBI(idx){if(!allImages.length)return;const item=allImages[idx];document.getElementById('lightbox-img').src=item.src;document.getElementById('lightbox-title').textContent=item.title;document.getElementById('lightbox-sub').textContent=item.sub}
+function lightboxNav(dir){currentIndex=(currentIndex+dir+allImages.length)%allImages.length;setLBI(currentIndex)}
+function closeLightboxBtn(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}
+function closeLightbox(e){if(e.target===document.getElementById('lightbox'))closeLightboxBtn()}
+document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='Escape')closeLightboxBtn();if(e.key==='ArrowRight')lightboxNav(1);if(e.key==='ArrowLeft')lightboxNav(-1)});
+document.addEventListener('contextmenu',e=>{if(e.target.tagName==='IMG'){e.preventDefault();return false}});
+document.addEventListener('dragstart',e=>{if(e.target.tagName==='IMG'){e.preventDefault();return false}});
+document.addEventListener('touchstart',e=>{if(e.target.tagName==='IMG')e.preventDefault()},{passive:false});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.boxShadow=window.scrollY>20?'0 2px 30px rgba(0,0,0,0.08)':'none'});
 </script>
 </body>
 </html>
