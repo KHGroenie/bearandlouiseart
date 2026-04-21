@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bear — Pop Art & Portraits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0d1a;--mid:#161628;--accent:#ff2d55;--text:#f0f0f0;--gold:#c9a84c}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+img{-webkit-user-drag:none;user-select:none;pointer-events:none}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;font-weight:300;background:var(--bg);color:var(--text);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.2rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(13,13,26,0.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,45,85,0.15);transition:box-shadow 0.3s}
+.nav-brand{display:flex;flex-direction:column;line-height:1}
+.nav-brand-name{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.06em;color:var(--text)}
+.nav-brand-name em{color:var(--accent);font-style:normal}
+.nav-brand-sub{font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;opacity:0.5;margin-top:2px}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
+.nav-links a{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;color:var(--text);opacity:0.7;transition:opacity 0.3s}
+.nav-links a:hover{opacity:1}
+.nav-louise-link{padding:0.55rem 1.5rem;border:1px solid rgba(201,168,76,0.5);border-radius:2px;font-size:0.68rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:all 0.35s}
+.nav-louise-link:hover{background:var(--gold);color:#111}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:5rem;background:var(--bg)}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,45,85,0.07) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:6rem 4rem 6rem 5rem;position:relative;z-index:2}
+.eyebrow{font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--accent);margin-bottom:1.8rem;animation:fadeUp 0.9s ease 0.1s both}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(5rem,9vw,9rem);line-height:0.9;letter-spacing:0.03em;margin-bottom:2rem;animation:fadeUp 0.9s ease 0.25s both}
+.hero-title .line-1{color:#fff}
+.hero-title .line-2{color:transparent;-webkit-text-stroke:2px var(--accent)}
+.hero-sub{font-size:0.9rem;line-height:1.9;color:rgba(240,240,240,0.55);max-width:400px;margin-bottom:3rem;animation:fadeUp 0.9s ease 0.4s both}
+.hero-actions{display:flex;gap:2rem;align-items:center;animation:fadeUp 0.9s ease 0.55s both}
+.btn-bear{display:inline-block;padding:1rem 2.5rem;background:var(--accent);color:#fff;font-family:'Jost',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:all 0.3s}
+.btn-bear:hover{background:#ff5577}
+.btn-ghost{font-size:0.78rem;letter-spacing:0.1em;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:3px;opacity:0.7;transition:opacity 0.3s}
+.btn-ghost:hover{opacity:1}
+.hero-right{display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:5.5rem 2rem 2rem 0}
+.bear-thumb{overflow:hidden;position:relative}
+.bear-thumb img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform 0.5s;display:block}
+.bear-thumb:hover img{transform:scale(1.06)}
+.about{background:var(--mid);padding:7rem 5rem;display:grid;grid-template-columns:1.3fr 1fr;gap:6rem;align-items:start}
+.section-label{font-size:0.62rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--accent);margin-bottom:1.2rem;display:block}
+.about-text h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4vw,4rem);line-height:1.1;letter-spacing:0.04em;color:#fff;margin-bottom:2rem}
+.about-text h2 em{color:var(--accent);font-style:normal}
+.about-text p{font-size:0.9rem;line-height:1.95;color:rgba(240,240,240,0.55);margin-bottom:1.2rem}
+.paw-sig{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--accent);margin-top:2rem;letter-spacing:0.08em}
+.style-tags{display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:1.5rem}
+.style-tag{padding:0.4rem 1rem;border:1px solid rgba(255,45,85,0.3);font-size:0.62rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent)}
+.about-img{position:relative}
+.about-img img{width:100%;height:auto;display:block;object-fit:contain;filter:contrast(1.1)}
+.about-img::after{content:'';position:absolute;top:1rem;left:1rem;right:-1rem;bottom:-1rem;border:1px solid var(--accent);opacity:0.3;pointer-events:none}
+.gallery{background:var(--bg);padding:6rem 3rem}
+.gallery-header{display:flex;justify-content:space-between;align-items:flex-end;padding:0 1rem;margin-bottom:3rem}
+.gallery-header h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4vw,4rem);letter-spacing:0.04em;color:#fff}
+.gallery-header h2 em{color:var(--accent);font-style:normal}
+.tab-pills{display:flex;border:1px solid rgba(255,45,85,0.3);border-radius:2px;overflow:hidden}
+.tab-pill{padding:0.6rem 1.5rem;font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;background:transparent;border:none;border-right:1px solid rgba(255,45,85,0.2);color:rgba(255,255,255,0.4);cursor:pointer;transition:all 0.3s}
+.tab-pill:last-child{border-right:none}
+.tab-pill.active{background:var(--accent);color:#fff}
+.tab-pill:hover:not(.active){background:rgba(255,45,85,0.1);color:rgba(255,255,255,0.8)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+/* Masonry — natural proportions, no cropping */
+.gallery-grid{columns:3;column-gap:0.8rem;padding:0 1rem}
+.gallery-item{break-inside:avoid;margin-bottom:0.8rem;position:relative;overflow:hidden;cursor:pointer;background:var(--mid);display:block}
+.gallery-thumb{width:100%;position:relative;overflow:hidden}
+.gallery-thumb img{width:100%;height:auto;display:block;transition:transform 0.5s ease,filter 0.5s;filter:contrast(1.05)}
+.gallery-item:hover .gallery-thumb img{transform:scale(1.04);filter:contrast(1.15) saturate(1.2)}
+.gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,13,26,0.9) 0%,transparent 50%);opacity:0;transition:opacity 0.4s;display:flex;align-items:flex-end;padding:1.2rem;pointer-events:none}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.gallery-info h4{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.06em;color:#fff}
+.gallery-info span{display:block;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-top:0.2rem}
+.carousel-wrap{position:relative;overflow:hidden;display:none}
+.carousel-track{display:flex;transition:transform 0.4s ease;gap:0.8rem;padding:0 1rem}
+.carousel-slide{flex:0 0 85vw;max-width:380px;position:relative;overflow:hidden;cursor:pointer;background:var(--mid)}
+.carousel-slide img{width:100%;height:auto;display:block}
+.carousel-caption{padding:0.8rem 1rem;background:var(--mid)}
+.carousel-caption h4{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.06em;color:#fff}
+.carousel-caption span{font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent)}
+.carousel-nav{display:flex;justify-content:center;gap:0.5rem;margin-top:1.2rem;padding-bottom:1rem}
+.carousel-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,45,85,0.3);border:none;cursor:pointer;transition:background 0.3s;padding:0}
+.carousel-dot.active{background:var(--accent)}
+.carousel-btns{display:flex;justify-content:space-between;padding:0 1rem;margin-bottom:0.5rem}
+.carousel-btn{background:var(--accent);color:#fff;border:none;width:36px;height:36px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.3s}
+.carousel-btn:hover{background:#ff5577}
+.commission-band{padding:5rem;background:var(--mid);text-align:center}
+.commission-band h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4vw,4.5rem);letter-spacing:0.04em;color:#fff;margin-bottom:1rem}
+.commission-band h2 span{color:var(--accent)}
+.commission-band p{font-size:0.9rem;color:rgba(240,240,240,0.5);line-height:1.9;max-width:480px;margin:0 auto 2rem}
+.contact{padding:6rem 5rem;background:var(--mid);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.contact-text h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,3vw,3rem);letter-spacing:0.04em;color:#fff;margin-bottom:1rem}
+.contact-text h2 em{color:var(--accent);font-style:normal}
+.contact-text p{font-size:0.9rem;line-height:1.9;color:rgba(240,240,240,0.5);margin-bottom:0.8rem}
+.contact-detail{display:flex;flex-direction:column;gap:1.2rem}
+.contact-item{display:flex;flex-direction:column;gap:0.3rem}
+.contact-item-label{font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--accent)}
+.contact-item-val{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;color:#fff}
+.contact-item-val a{color:inherit;text-decoration:none;transition:opacity 0.3s}
+.contact-item-val a:hover{opacity:0.7}
+.lightbox{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,0.96);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox-inner{position:relative;max-width:90vw;max-height:90vh;display:flex;flex-direction:column;align-items:center}
+.lightbox-inner img{max-width:100%;max-height:78vh;object-fit:contain;display:block}
+.lightbox-caption{margin-top:1.2rem;text-align:center}
+.lightbox-caption h4{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.06em;color:#fff}
+.lightbox-caption span{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.4)}
+.lightbox-close{position:absolute;top:-3rem;right:0;background:none;border:none;color:rgba(255,255,255,0.6);font-size:1.5rem;cursor:pointer;transition:color 0.3s}
+.lightbox-close:hover{color:#fff}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,0.5);font-size:2.5rem;cursor:pointer;padding:1rem;transition:color 0.3s}
+.lightbox-nav:hover{color:#fff}
+.lightbox-prev{left:-4rem}
+.lightbox-next{right:-4rem}
+footer{padding:3rem 5rem;display:flex;justify-content:space-between;align-items:center;background:#050510;border-top:1px solid rgba(255,45,85,0.1)}
+.footer-brand{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:0.06em;color:var(--accent)}
+.footer-links{display:flex;gap:1.8rem}
+.footer-links a{color:rgba(255,255,255,0.35);font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;text-decoration:none;transition:color 0.3s}
+.footer-links a:hover{color:rgba(255,255,255,0.8)}
+footer span{font-size:0.7rem;letter-spacing:0.1em;color:rgba(255,255,255,0.25)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-right{display:none}
+  .hero-left{padding:6rem 1.5rem 3rem}
+  .about{grid-template-columns:1fr;padding:4rem 1.5rem;gap:2.5rem}
+  .gallery{padding:3rem 0}
+  .gallery-header{padding:0 1rem;flex-direction:column;align-items:flex-start;gap:1rem}
+  .gallery-grid{display:none}
+  .carousel-wrap{display:block}
+  .commission-band{padding:4rem 2rem}
+  .contact{grid-template-columns:1fr;padding:4rem 1.5rem;gap:2.5rem}
+  footer{padding:2rem 1.5rem;flex-direction:column;gap:1.2rem;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center}
+}
+@media(min-width:901px) and (max-width:1200px){.gallery-grid{columns:2}}
+@media(min-width:1440px){
+  .hero-left{padding-left:calc((100vw - 1400px)/2 + 5rem);max-width:700px}
+  .about,.contact{max-width:1400px;margin:0 auto}
+  .gallery{max-width:1600px;margin:0 auto}
+  .gallery-grid{columns:4}
+  nav,footer{padding-left:calc((100vw - 1400px)/2 + 3rem);padding-right:calc((100vw - 1400px)/2 + 3rem)}
+}
+</style>
+</head>
+<body>
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightboxBtn()">&#10005;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">&#8249;</button>
+    <img id="lightbox-img" src="" alt="">
+    <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#8250;</button>
+    <div class="lightbox-caption"><h4 id="lightbox-title"></h4><span id="lightbox-sub"></span></div>
+  </div>
+</div>
+<nav id="nav">
+  <div class="nav-brand">
+    <div class="nav-brand-name"><em>Bear</em> & Louise</div>
+    <div class="nav-brand-sub">South African Artists</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="index.html" class="nav-louise-link">Louise &#127912;</a>
+</nav>
+<section class="hero">
+  <div class="hero-left">
+    <p class="eyebrow">Pop Art &#183; Portraiture &#183; Graphic Design</p>
+    <div class="hero-title"><div class="line-1">ART THAT</div><div class="line-2">CUTS OUT</div></div>
+    <p class="hero-sub">He goes by Bear. His portraits and pop art are cut from the board itself — no frame, no border, just raw art shaped into its own form. Hyper-real faces, bold colour, pure energy.</p>
+    <div class="hero-actions">
+      <a href="#gallery" class="btn-bear">See the Work</a>
+      <a href="#contact" class="btn-ghost">Commission Bear</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="bear-thumb"><img src="Bear2.jpg" alt="Bear art"></div>
+    <div class="bear-thumb"><img src="Bear26.jpg" alt="Bear art"></div>
+    <div class="bear-thumb"><img src="Bear19.jpg" alt="Bear art"></div>
+    <div class="bear-thumb"><img src="Bear21.jpg" alt="Bear art"></div>
+  </div>
+</section>
+<section class="about">
+  <div class="about-text">
+    <span class="section-label">The Artist</span>
+    <h2>HE GOES BY <em>BEAR</em>.<br>NOT MANY KNOW<br>HIS REAL NAME.</h2>
+    <p>And perhaps that's the point. His art speaks loudly enough.</p>
+    <p>A graphic designer by trade with a pop art soul — Bear creates hyper-realistic portraits and caricatures, then takes it one step further: he cuts the board itself around the subject. No frame, no border, no rules. Just the face, floating free.</p>
+    <p>Seeing it in person is the only way to truly understand it.</p>
+    <div class="style-tags"><span class="style-tag">Pop Art</span><span class="style-tag">Cutout Portraits</span><span class="style-tag">Caricature</span><span class="style-tag">Pencil Realism</span><span class="style-tag">Graphic Design</span></div>
+    <div class="paw-sig">Bear &#128062;</div>
+  </div>
+  <div class="about-img"><img src="Bear1.jpg" alt="Bear the artist"></div>
+</section>
+<section class="gallery" id="gallery">
+  <div class="gallery-header">
+    <div><span class="section-label">The Work</span><h2>Bear's <em>Gallery</em></h2></div>
+    <div class="tab-pills">
+      <button class="tab-pill active" onclick="switchTab('all',this)">All</button>
+      <button class="tab-pill" onclick="switchTab('pop',this)">Pop Art</button>
+      <button class="tab-pill" onclick="switchTab('pencil',this)">Pencil</button>
+    </div>
+  </div>
+  <div class="tab-panel active" id="tab-all">
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('Bear1.jpg','Bear','The Artist')"><div class="gallery-thumb"><img src="Bear1.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Bear</h4><span>The Artist</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear2.jpg','Pop Art Portrait','Mixed Media · Cutout')"><div class="gallery-thumb"><img src="Bear2.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Pop Art Portrait</h4><span>Mixed Media · Cutout</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear3.jpg','Character Study','Pop Art')"><div class="gallery-thumb"><img src="Bear3.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Character Study</h4><span>Pop Art</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear4.jpg','Comic Energy','Pop Art · Cutout')"><div class="gallery-thumb"><img src="Bear4.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Comic Energy</h4><span>Pop Art · Cutout</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear5.jpg','Group Portrait','Mixed Media')"><div class="gallery-thumb"><img src="Bear5.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Group Portrait</h4><span>Mixed Media</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear6.jpg','Pencil Portrait','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear6.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Pencil Portrait</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear7.jpg','The Elder','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear7.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>The Elder</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear8.jpg','Cat Study','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear8.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Cat Study</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear9.jpg','Soft Portrait','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear9.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Soft Portrait</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear10.jpg','Study in Grey','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear10.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Study in Grey</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear11.jpg','Young Face','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear11.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Young Face</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear12.jpg','Elegant Study','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear12.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Elegant Study</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear13.jpg','Colour Cutout','Pop Art · Cutout Board')"><div class="gallery-thumb"><img src="Bear13.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Colour Cutout</h4><span>Pop Art · Cutout Board</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear14.jpg','Baby Portrait','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear14.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Baby Portrait</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear15.jpg','Infant Study','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear15.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Infant Study</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear16.jpg','The Gentleman','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear16.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>The Gentleman</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear17.jpg','Elder Portrait','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear17.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Elder Portrait</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear18.jpg','Strong Face','Mixed Media')"><div class="gallery-thumb"><img src="Bear18.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Strong Face</h4><span>Mixed Media</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear19.jpg','Hat Man','Pop Art · Cutout')"><div class="gallery-thumb"><img src="Bear19.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Hat Man</h4><span>Pop Art · Cutout</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear20.jpg','Classic Car','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear20.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Classic Car</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear21.jpg','Bold Colour','Pop Art · Cutout Board')"><div class="gallery-thumb"><img src="Bear21.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Bold Colour</h4><span>Pop Art · Cutout Board</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear22.jpg','Realism Study','Mixed Media')"><div class="gallery-thumb"><img src="Bear22.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Realism Study</h4><span>Mixed Media</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear23.jpg','Dramatic Portrait','Mixed Media')"><div class="gallery-thumb"><img src="Bear23.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Dramatic Portrait</h4><span>Mixed Media</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear24.jpg','Sketch Study','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear24.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Sketch Study</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear25.jpg','Portrait Study','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear25.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Portrait Study</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear26.jpg','Vivid Face','Pop Art · Cutout')"><div class="gallery-thumb"><img src="Bear26.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Vivid Face</h4><span>Pop Art · Cutout</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear27.jpg','Pencil Sketch','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear27.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Pencil Sketch</h4><span>Pencil on Paper</span></div></div></div>
+    </div>
+    <div class="carousel-wrap" id="carousel-all"><div class="carousel-btns"><button class="carousel-btn" onclick="carouselPrev('all')">&#8249;</button><button class="carousel-btn" onclick="carouselNext('all')">&#8250;</button></div><div class="carousel-track" id="track-all"></div><div class="carousel-nav" id="dots-all"></div></div>
+  </div>
+  <div class="tab-panel" id="tab-pop">
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('Bear2.jpg','Pop Art Portrait','Mixed Media · Cutout')"><div class="gallery-thumb"><img src="Bear2.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Pop Art Portrait</h4><span>Mixed Media · Cutout</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear3.jpg','Character Study','Pop Art')"><div class="gallery-thumb"><img src="Bear3.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Character Study</h4><span>Pop Art</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear4.jpg','Comic Energy','Pop Art · Cutout')"><div class="gallery-thumb"><img src="Bear4.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Comic Energy</h4><span>Pop Art · Cutout</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear13.jpg','Colour Cutout','Pop Art · Cutout Board')"><div class="gallery-thumb"><img src="Bear13.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Colour Cutout</h4><span>Pop Art · Cutout Board</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear18.jpg','Strong Face','Mixed Media')"><div class="gallery-thumb"><img src="Bear18.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Strong Face</h4><span>Mixed Media</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear19.jpg','Hat Man','Pop Art · Cutout')"><div class="gallery-thumb"><img src="Bear19.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Hat Man</h4><span>Pop Art · Cutout</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear21.jpg','Bold Colour','Pop Art · Cutout Board')"><div class="gallery-thumb"><img src="Bear21.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Bold Colour</h4><span>Pop Art · Cutout Board</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear22.jpg','Realism Study','Mixed Media')"><div class="gallery-thumb"><img src="Bear22.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Realism Study</h4><span>Mixed Media</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear23.jpg','Dramatic Portrait','Mixed Media')"><div class="gallery-thumb"><img src="Bear23.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Dramatic Portrait</h4><span>Mixed Media</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear26.jpg','Vivid Face','Pop Art · Cutout')"><div class="gallery-thumb"><img src="Bear26.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Vivid Face</h4><span>Pop Art · Cutout</span></div></div></div>
+    </div>
+    <div class="carousel-wrap" id="carousel-pop"><div class="carousel-btns"><button class="carousel-btn" onclick="carouselPrev('pop')">&#8249;</button><button class="carousel-btn" onclick="carouselNext('pop')">&#8250;</button></div><div class="carousel-track" id="track-pop"></div><div class="carousel-nav" id="dots-pop"></div></div>
+  </div>
+  <div class="tab-panel" id="tab-pencil">
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox('Bear6.jpg','Pencil Portrait','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear6.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Pencil Portrait</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear7.jpg','The Elder','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear7.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>The Elder</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear8.jpg','Cat Study','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear8.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Cat Study</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear9.jpg','Soft Portrait','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear9.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Soft Portrait</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear10.jpg','Study in Grey','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear10.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Study in Grey</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear11.jpg','Young Face','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear11.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Young Face</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear12.jpg','Elegant Study','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear12.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Elegant Study</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear14.jpg','Baby Portrait','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear14.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Baby Portrait</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear15.jpg','Infant Study','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear15.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Infant Study</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear16.jpg','The Gentleman','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear16.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>The Gentleman</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear17.jpg','Elder Portrait','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear17.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Elder Portrait</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear20.jpg','Classic Car','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear20.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Classic Car</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear24.jpg','Sketch Study','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear24.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Sketch Study</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear25.jpg','Portrait Study','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear25.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Portrait Study</h4><span>Pencil on Paper</span></div></div></div>
+      <div class="gallery-item" onclick="openLightbox('Bear27.jpg','Pencil Sketch','Pencil on Paper')"><div class="gallery-thumb"><img src="Bear27.jpg" alt="" loading="lazy"></div><div class="gallery-overlay"><div class="gallery-info"><h4>Pencil Sketch</h4><span>Pencil on Paper</span></div></div></div>
+    </div>
+    <div class="carousel-wrap" id="carousel-pencil"><div class="carousel-btns"><button class="carousel-btn" onclick="carouselPrev('pencil')">&#8249;</button><button class="carousel-btn" onclick="carouselNext('pencil')">&#8250;</button></div><div class="carousel-track" id="track-pencil"></div><div class="carousel-nav" id="dots-pencil"></div></div>
+  </div>
+</section>
+<div class="commission-band">
+  <span class="section-label" style="display:block;margin-bottom:1rem">Commission Bear</span>
+  <h2>YOUR FACE.<br><span>HIS HANDS.</span></h2>
+  <p>Commission a portrait, caricature or pop art cutout. Each piece is one of a kind — cut from the board, shaped by his hand.</p>
+  <a href="https://api.whatsapp.com/send/?phone=27826145688&text=Hi Bear, I'd like to commission a piece&type=phone_number&app_absent=0" target="_blank" class="btn-bear" style="display:inline-block;padding:1rem 2.5rem;text-decoration:none">WhatsApp Bear</a>
+</div>
+<section class="contact" id="contact">
+  <div class="contact-text">
+    <h2>Find <em>Bear</em></h2>
+    <p>Commission a portrait, caricature, pop art cutout or graphic design piece. Reach out directly to discuss your idea.</p>
+  </div>
+  <div class="contact-detail">
+    <div class="contact-item"><div class="contact-item-label">WhatsApp</div><div class="contact-item-val"><a href="https://api.whatsapp.com/send/?phone=27826145688" target="_blank">+27 82 614 5688</a></div></div>
+    <div class="contact-item"><div class="contact-item-label">Email</div><div class="contact-item-val"><a href="mailto:louisehansenartist@gmail.com">louisehansenartist@gmail.com</a></div></div>
+    <div class="contact-item"><div class="contact-item-label">Instagram</div><div class="contact-item-val"><a href="https://www.instagram.com/louisehansenartist" target="_blank">@louisehansenartist</a></div></div>
+  </div>
+</section>
+<footer>
+  <div class="footer-brand">Bear &#128062;</div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/louisehansenartist" target="_blank">Instagram</a>
+    <a href="https://api.whatsapp.com/send/?phone=27826145688" target="_blank">WhatsApp</a>
+    <a href="mailto:louisehansenartist@gmail.com">Email</a>
+  </div>
+  <span>&#169; 2026</span>
+</footer>
+<script>
+function switchTab(tab,pill){document.querySelectorAll('.tab-pill').forEach(p=>p.classList.remove('active'));pill.classList.add('active');document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.getElementById('tab-'+tab).classList.add('active');setCV()}
+const CS={};
+function buildCarousel(id,items){const track=document.getElementById('track-'+id);const dots=document.getElementById('dots-'+id);if(!track||track.children.length>0)return;items.forEach((item,i)=>{const s=document.createElement('div');s.className='carousel-slide';s.innerHTML='<img src="'+item.src+'" alt="'+item.title+'" loading="lazy"><div class="carousel-caption"><h4>'+item.title+'</h4><span>'+item.sub+'</span></div>';s.onclick=()=>openLightbox(item.src,item.title,item.sub);track.appendChild(s);const d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.onclick=()=>goToSlide(id,i);dots.appendChild(d)});CS[id]={current:0,total:items.length}}
+function updateCarousel(id){const s=CS[id];if(!s)return;const track=document.getElementById('track-'+id);const w=(track.children[0]?.offsetWidth||0)+12;track.style.transform='translateX(-'+(s.current*w)+'px)';document.querySelectorAll('#dots-'+id+' .carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===s.current))}
+function carouselNext(id){const s=CS[id];if(!s)return;s.current=(s.current+1)%s.total;updateCarousel(id)}
+function carouselPrev(id){const s=CS[id];if(!s)return;s.current=(s.current-1+s.total)%s.total;updateCarousel(id)}
+function goToSlide(id,i){CS[id].current=i;updateCarousel(id)}
+function initCarousels(){[['all','#tab-all .gallery-item'],['pop','#tab-pop .gallery-item'],['pencil','#tab-pencil .gallery-item']].forEach(([id,sel])=>{const items=[];document.querySelectorAll(sel).forEach(el=>{const img=el.querySelector('img');const h4=el.querySelector('h4');const span=el.querySelector('span');if(img)items.push({src:img.getAttribute('src'),title:h4?.textContent||'',sub:span?.textContent||''})});buildCarousel(id,items)})}
+function setCV(){const m=window.innerWidth<=900;['all','pop','pencil'].forEach(id=>{const el=document.getElementById('carousel-'+id);if(el)el.style.display=m?'block':'none'})}
+window.addEventListener('load',()=>{initCarousels();setCV()});
+window.addEventListener('resize',setCV);
+let allImages=[],currentIndex=0;
+function openLightbox(src,title,sub){allImages=[];const active=document.querySelector('.tab-panel.active');if(active)active.querySelectorAll('.gallery-item').forEach(el=>{const m=(el.getAttribute('onclick')||'').match(/openLightbox\('([^']+)','([^']+)','([^']+)'\)/);if(m)allImages.push({src:m[1],title:m[2],sub:m[3]})});currentIndex=allImages.findIndex(i=>i.src===src);if(currentIndex<0)currentIndex=0;setLBI(currentIndex);document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden'}
+function setLBI(idx){if(!allImages.length)return;const item=allImages[idx];document.getElementById('lightbox-img').src=item.src;document.getElementById('lightbox-title').textContent=item.title;document.getElementById('lightbox-sub').textContent=item.sub}
+function lightboxNav(dir){currentIndex=(currentIndex+dir+allImages.length)%allImages.length;setLBI(currentIndex)}
+function closeLightboxBtn(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}
+function closeLightbox(e){if(e.target===document.getElementById('lightbox'))closeLightboxBtn()}
+document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='Escape')closeLightboxBtn();if(e.key==='ArrowRight')lightboxNav(1);if(e.key==='ArrowLeft')lightboxNav(-1)});
+document.addEventListener('contextmenu',e=>{if(e.target.tagName==='IMG'){e.preventDefault();return false}});
+document.addEventListener('dragstart',e=>{if(e.target.tagName==='IMG'){e.preventDefault();return false}});
+document.addEventListener('touchstart',e=>{if(e.target.tagName==='IMG')e.preventDefault()},{passive:false});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+window.addEventListener('scroll',()=>{document.getElementById('nav').style.boxShadow=window.scrollY>20?'0 2px 30px rgba(0,0,0,0.3)':'none'});
+</script>
+</body>
+</html>
